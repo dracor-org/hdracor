@@ -1,0 +1,56 @@
+[
+  {
+    "repository": "https://github.com/dracor-org/alsdracor",
+    "name": "als",
+    "uri": "https://dracor.org/api/corpora/als",
+    "title": "Alsatian Drama Corpus"
+  },
+  {
+    "repository": "https://github.com/dracor-org/caldracor",
+    "name": "cal",
+    "uri": "https://dracor.org/api/corpora/cal",
+    "title": "Calderón Drama Corpus"
+  },
+  {
+    "repository": "https://github.com/dracor-org/gerdracor",
+    "name": "ger",
+    "uri": "https://dracor.org/api/corpora/ger",
+    "title": "German Drama Corpus"
+  },
+  {
+    "repository": "https://github.com/dracor-org/greekdracor",
+    "name": "greek",
+    "uri": "https://dracor.org/api/corpora/greek",
+    "title": "Greek Drama Corpus"
+  },
+  {
+    "repository": "https://github.com/dracor-org/romdracor",
+    "name": "rom",
+    "uri": "https://dracor.org/api/corpora/rom",
+    "title": "Roman Drama Corpus"
+  },
+  {
+    "repository": "https://github.com/dracor-org/rusdracor",
+    "name": "rus",
+    "uri": "https://dracor.org/api/corpora/rus",
+    "title": "Russian Drama Corpus"
+  },
+  {
+    "repository": "https://github.com/dracor-org/shakedracor",
+    "name": "shake",
+    "uri": "https://dracor.org/api/corpora/shake",
+    "title": "Shakespeare Drama Corpus"
+  },
+  {
+    "repository": "https://github.com/dracor-org/spandracor",
+    "name": "span",
+    "uri": "https://dracor.org/api/corpora/span",
+    "title": "Spanish Drama Corpus"
+  },
+  {
+    "repository": "https://github.com/dracor-org/swedracor",
+    "name": "swe",
+    "uri": "https://dracor.org/api/corpora/swe",
+    "title": "Swedish Drama Corpus"
+  }
+]

@@ -1,0 +1,9 @@
+.stack-work/
+.HTF
+
+*~
+*.lock
+
+*.db
+utils/*.html
+utils/*.csv

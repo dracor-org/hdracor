@@ -1,0 +1,59 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: d117b7859427503acf88eff6fa4441551a68a3646b2da153eafdcd9ec4093527
+
+name:           hdracor
+version:        0.1.0.0
+description:    Typesafe drama-analysis on dracor.org
+homepage:       https://github.com/githubuser/hdracor#readme
+bug-reports:    https://github.com/githubuser/hdracor/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2019 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/hdracor
+
+library
+  exposed-modules:
+      Text.DraCor.Types
+      Text.DraCor.Utils
+  other-modules:
+      Paths_hdracor
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , text
+  default-language: Haskell2010
+
+test-suite hdracor-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Test.Text.DraCor.Types
+      Paths_hdracor
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HTF
+    , aeson
+    , base >=4.7 && <5
+    , bytestring
+    , hdracor
+    , text
+  default-language: Haskell2010

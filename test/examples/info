@@ -1,0 +1,6 @@
+{
+  "name": "DraCor API",
+  "status": "beta",
+  "existdb": "4.7.0",
+  "version": "0.58.0"
+}

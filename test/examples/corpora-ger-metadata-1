@@ -1,0 +1,29 @@
+[
+  {
+    "size": 49,
+    "genre": null,
+    "averageClustering": 0.8497673123239152,
+    "numOfPersonGroups": 21,
+    "density": 0.3129251700680272,
+    "averagePathLength": 1.751700680272109,
+    "maxDegreeIds": "muenzer",
+    "averageDegree": 15.020408163265307,
+    "name": "alberti-brot",
+    "diameter": 3,
+    "yearPremiered": null,
+    "yearPrinted": 1888,
+    "maxDegree": 40,
+    "numOfSpeakers": 49,
+    "yearNormalized": 1888,
+    "numConnectedComponents": 1,
+    "numOfSpeakersUnknown": 18,
+    "yearWritten": 1888,
+    "id": "ger000171",
+    "numOfSpeakersFemale": 7,
+    "numOfSegments": 36,
+    "numOfSpeakersMale": 24,
+    "wikipediaLinkCount": 0,
+    "numOfActs": 5,
+    "playName": "alberti-brot"
+  }
+]

@@ -1,0 +1,19 @@
+# -*- mode: restclient; -*-
+
+# info
+GET https://dracor.org/api/info
+
+# list of corpora
+GET https://dracor.org/api/corpora
+
+# list corpus content
+GET https://dracor.org/api/corpora/ger
+
+# metadata for all the plays in a corpus
+GET https://dracor.org/api/corpora/ger/metadata
+
+# metadata and network metrics for single play
+GET https://dracor.org/api/corpora/ger/play/alberti-brot
+
+# network metrics for single play
+GET https://dracor.org/api/corpora/ger/play/alberti-brot/metrics
