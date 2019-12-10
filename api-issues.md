@@ -69,3 +69,19 @@ Example:
     "numOfActs": 0,
     "playName": "brandes-ariadne-auf-naxos"
 }
+
+
+# Type of betweenness #
+
+Hi,
+
+sometimes on the api function
+`/corpora/{corpusname}/play/{playname}/metrics` the type of
+`betweenness` is a string, but should be an floating point number or
+`null`.
+
+If found `"betweenness": "0"` on the play `alberti-brot` on some
+objects in `nodes`.
+
+Regards,
+Chris

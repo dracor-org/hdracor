@@ -32,4 +32,9 @@ test_corporaGerPlayAlbertiBrot = do
   s <- B.readFile "test/examples/corpora-ger-play-alberti-brot"
   assertEqual True (isJust (decode s :: Maybe Play))
 
+-- see issue #87 of the dracor-api
+test_corporaGerPlayAlbertiBrotMetrics = do
+  s <- B.readFile "test/examples/corpora-ger-play-alberti-brot-metrics"
+  assertEqual True (isJust (decode s :: Maybe Play))
+
 

@@ -32,6 +32,17 @@ data API = API
 $(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''API)
 
 
+data Node = Node
+  { nodeWeightedDegree :: Maybe Int
+  , nodeDegree :: Maybe Int
+  , nodeCloseness :: Maybe Float
+  , nodeEigenvector :: Maybe Float
+  , nodeId :: Maybe Text
+  , nodeBetweenness :: Maybe Float
+  } deriving (Show, Eq, Generic)
+
+$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 4} ''Node)
+
 
 data Scene = Scene
   { scnNumber :: Maybe Int
@@ -121,11 +132,13 @@ data Play = Play
   , plySegments :: Maybe [Scene]
   -- characters
   , plyCast :: Maybe [CastItem]
+  -- Nodes
+  , plyNodes :: Maybe [Node]
   } deriving (Generic, Show, Eq)
 
 $(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''Play)
 
-data PlayFromList = PlayFromList
+data PlayFromCorpusList = PlayFromCorpusList
   { plyflId :: Maybe Text
   , plyflName :: Maybe Text
   , plyflTitle :: Maybe Text
@@ -152,7 +165,7 @@ data Corpus = Corpus
   , crpsTitle :: Maybe Text
   , crpsRepository :: Maybe Text
   , crpsUri :: Maybe Text
-  , crpsDramas :: Maybe [PlayFromList]
+  , crpsDramas :: Maybe [PlayFromCorpusList]  -- FIXME: should be Maybe [Play]
   } deriving (Generic, Show, Eq)
 
 $(deriveJSON defaultOptions{fieldLabelModifier = modifyField 4} ''Corpus)
