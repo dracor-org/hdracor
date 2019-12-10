@@ -23,12 +23,13 @@ test_corporaGer = do
   s <- B.readFile "test/examples/corpora-ger"
   assertEqual True (isJust (decode s :: Maybe Corpus))
 
-test_corporaGerMetadataSingleton = do
-  s <- B.readFile "test/examples/corpora-ger-metadata-1"
-  assertEqual True (isJust (decode s :: Maybe [Play]))
-
 -- see issue #85 of dracor-api
 test_corporaGerMetadata = do
   s <- B.readFile "test/examples/corpora-ger-metadata"
   assertEqual True (isJust (decode s :: Maybe [Play]))
+
+test_corporaGerPlayAlbertiBrot = do
+  s <- B.readFile "test/examples/corpora-ger-play-alberti-brot"
+  assertEqual True (isJust (decode s :: Maybe Play))
+
 

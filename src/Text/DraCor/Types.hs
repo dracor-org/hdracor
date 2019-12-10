@@ -34,9 +34,10 @@ $(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''API)
 
 
 data Scene = Scene
-  { scnNumber :: Maybe Text -- Int
+  { scnNumber :: Maybe Int
   , scnTitle :: Maybe Text
   , scnSpeakers :: Maybe [Text]
+  , scnType :: Maybe Text
   } deriving (Generic, Show, Eq)
 
 $(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''Scene)
@@ -65,6 +66,7 @@ $(deriveJSON defaultOptions{fieldLabelModifier = modifyField 4} ''CastItem)
 data Author = Author
   { authrName :: Maybe Text
   , authrKey :: Maybe Text
+  , warning :: Maybe Text -- deprecation warning
   } deriving (Generic, Show, Eq)
 
 $(deriveJSON defaultOptions{fieldLabelModifier = modifyField 5} ''Author)
@@ -90,19 +92,18 @@ data Play = Play
   , plyNumOfSegments :: Maybe Int
   , plyWikipediaLinkCount :: Maybe Int
   , plyNumOfActs :: Maybe Int
-  -- Scenes
-  , plySegments :: Maybe [Scene]
+  , plyNetworkSize :: Maybe Int
+  , plyAllInIndex :: Maybe Float
+  , plyAllInSegment :: Maybe Int
   -- meta data
   , plyId :: Maybe Text
   , plyName :: Maybe Text
   , plyPlayName :: Maybe Text
   , plyGenre :: Maybe Text
-  -- , plyAuthors :: Maybe [Author]
-  -- , plyAuthor :: Maybe Author
-  -- , plyCorpus :: Maybe Text
-  -- , plyOriginalSource :: Maybe Text
-  -- , plyAllInIndex :: Maybe Float
-  -- , plyAllInSegment :: Maybe Text -- Int
+  , plyAuthors :: Maybe [Author]
+  , plyAuthor :: Maybe Author
+  , plyCorpus :: Maybe Text
+  , plyOriginalSource :: Maybe Text
   , plyYearPremiered :: Maybe YearInt
   , plyYearPrinted :: Maybe YearInt
   , plyYearNormalized :: Maybe YearInt
@@ -110,13 +111,15 @@ data Play = Play
   , plyWikidataId :: Maybe Text
   , plySubtitle :: Maybe Text
   , plyTitle :: Maybe Text
-  , plySource :: Maybe Text -- not Source
+  , plySource :: Maybe Source
   , plySourceUrl :: Maybe URL
   , plyPrintYear :: Maybe Year
   , plyPremiereYear :: Maybe Year
   , plyWrittenYear :: Maybe Year
-  , plyNetworkSize :: Maybe Text -- Int
   , plyNetworkdataCsvUrl :: Maybe URL
+  -- Scenes
+  , plySegments :: Maybe [Scene]
+  -- characters
   , plyCast :: Maybe [CastItem]
   } deriving (Generic, Show, Eq)
 

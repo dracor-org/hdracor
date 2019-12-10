@@ -1,0 +1,773 @@
+{
+  "segments": [
+    {
+      "number": 1,
+      "speakers": [
+        "dietrich",
+        "helldrungen",
+        "erich"
+      ],
+      "title": "I. Akt. | 1. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 2,
+      "speakers": [
+        "graefin",
+        "helldrungen",
+        "dietrich"
+      ],
+      "title": "I. Akt. | 2. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 3,
+      "speakers": [
+        "liborius",
+        "graefin",
+        "dietrich",
+        "ruediger",
+        "helldrungen",
+        "erich"
+      ],
+      "title": "I. Akt. | 3. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 4,
+      "speakers": [
+        "dietrich",
+        "probst",
+        "liborius"
+      ],
+      "title": "I. Akt. | 4. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 5,
+      "speakers": [
+        "gerlind",
+        "graefin",
+        "liborius",
+        "dietrich",
+        "probst",
+        "ein_knappe"
+      ],
+      "title": "I. Akt. | 5. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 6,
+      "speakers": [
+        "die_alte_steimann",
+        "frau_huefer",
+        "dietrich",
+        "erich",
+        "gerlind",
+        "blinte",
+        "bauern_1",
+        "liborius",
+        "engel",
+        "viele_stimmen",
+        "ruediger",
+        "thomae",
+        "probst",
+        "sander",
+        "reinhard",
+        "alle_1",
+        "storch",
+        "einige_bauern"
+      ],
+      "title": "I. Akt. | 6. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 7,
+      "speakers": [
+        "pfeifer",
+        "storch",
+        "engel",
+        "thomae",
+        "ruediger",
+        "dietrich",
+        "frau_huefer",
+        "bauern_1"
+      ],
+      "title": "I. Akt. | 7. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 8,
+      "speakers": [
+        "frau_huefer",
+        "hans",
+        "dietrich",
+        "erich",
+        "gerlind",
+        "liborius",
+        "pfeifer",
+        "engel",
+        "blinte"
+      ],
+      "title": "I. Akt. | 8. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 9,
+      "speakers": [
+        "muenzer",
+        "liborius",
+        "pfeifer",
+        "bauern_1",
+        "gerlind",
+        "blinte",
+        "dietrich",
+        "erich",
+        "hans",
+        "ein_theil_der_bauern_1"
+      ],
+      "title": "I. Akt. | 9. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 10,
+      "speakers": [
+        "blinte",
+        "pfeifer",
+        "engel",
+        "reinhard",
+        "hans"
+      ],
+      "title": "II. Akt. | 1. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 11,
+      "speakers": [
+        "muenzer",
+        "pfeifer",
+        "stimmen_vor_der_thuer"
+      ],
+      "title": "II. Akt. | 2. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 12,
+      "speakers": [
+        "engel",
+        "muenzer",
+        "blinte",
+        "pfeifer",
+        "bauern_2",
+        "hans",
+        "ein_theil_der_bauern_2",
+        "laerm_draussen_vor_der_scene"
+      ],
+      "title": "II. Akt. | 3. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 13,
+      "speakers": [
+        "erich",
+        "sander",
+        "engel",
+        "bauern_2",
+        "muenzer",
+        "roder",
+        "blinte",
+        "hans"
+      ],
+      "title": "II. Akt. | 4. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 14,
+      "speakers": [
+        "muenzer",
+        "gerlind",
+        "laerm_hinter_der_scene"
+      ],
+      "title": "II. Akt. | 5. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 15,
+      "speakers": [
+        "engel",
+        "bauern_2",
+        "muenzer",
+        "blinte",
+        "weiber",
+        "pfeifer",
+        "sander",
+        "alle_2",
+        "roder",
+        "thomae",
+        "frau_huefer",
+        "die_alte_steimann",
+        "gerlind",
+        "hans"
+      ],
+      "title": "II. Akt. | 6. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 16,
+      "speakers": [
+        "luther",
+        "muenzer",
+        "stimmen_hinter_der_scene",
+        "wenige_stimmen",
+        "starker_chor",
+        "anderer_chor",
+        "stimmen_durcheinander"
+      ],
+      "title": "III. Akt. | 1. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 17,
+      "speakers": [
+        "helldrungen",
+        "dietrich",
+        "graefin",
+        "gerlind",
+        "jacobe"
+      ],
+      "title": "III. Akt. | 2. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 18,
+      "speakers": [
+        "gerlind",
+        "jacobe"
+      ],
+      "title": "III. Akt. | 3. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 19,
+      "speakers": [
+        "gerlind",
+        "muenzer"
+      ],
+      "title": "III. Akt. | 4. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 20,
+      "speakers": [
+        "jacobe",
+        "dietrich",
+        "graefin",
+        "muenzer",
+        "gerlind",
+        "frauen",
+        "ein_knecht_3-6a",
+        "ein_knecht_3-6b"
+      ],
+      "title": "III. Akt. | 6. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 21,
+      "speakers": [
+        "dietrich",
+        "helldrungen",
+        "gerlind",
+        "graefin",
+        "ein_knecht_3-7"
+      ],
+      "title": "III. Akt. | 7. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 22,
+      "speakers": [
+        "blinte",
+        "storch",
+        "bauern_4",
+        "thomae"
+      ],
+      "title": "IV. Akt. | 1. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 23,
+      "speakers": [
+        "pfeifer",
+        "muenzer",
+        "storch",
+        "sander",
+        "engel",
+        "blinte",
+        "bauern_4",
+        "thomae"
+      ],
+      "title": "IV. Akt. | 2. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 24,
+      "speakers": [
+        "muenzer",
+        "hans",
+        "pfeifer"
+      ],
+      "title": "IV. Akt. | 3. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 25,
+      "speakers": [
+        "muenzer"
+      ],
+      "title": "IV. Akt. | 4. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 26,
+      "speakers": [
+        "pfeifer",
+        "muenzer",
+        "roder"
+      ],
+      "title": "IV. Akt. | 5. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 27,
+      "speakers": [
+        "hans",
+        "muenzer"
+      ],
+      "title": "IV. Akt. | 6. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 28,
+      "speakers": [
+        "wache",
+        "muenzer",
+        "jacobe"
+      ],
+      "title": "IV. Akt. | 7. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 29,
+      "speakers": [
+        "pfeifer",
+        "muenzer",
+        "jacobe",
+        "bauern_4",
+        "hans"
+      ],
+      "title": "IV. Akt. | 8. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 30,
+      "speakers": [
+        "muenzer",
+        "blinte"
+      ],
+      "title": "IV. Akt. | 9. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 31,
+      "speakers": [
+        "landgraf",
+        "helldrungen",
+        "probst",
+        "dietrich"
+      ],
+      "title": "V. Akt. | 1. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 32,
+      "speakers": [
+        "muenzer",
+        "gerlind"
+      ],
+      "title": "V. Akt. | 2. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 33,
+      "speakers": [
+        "hans",
+        "muenzer",
+        "bauern_5",
+        "gerlind"
+      ],
+      "title": "V. Akt. | 3. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 34,
+      "speakers": [
+        "landgraf",
+        "helldrungen",
+        "probst",
+        "dietrich",
+        "einige_landsknechte"
+      ],
+      "title": "V. Akt. | 4. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 35,
+      "speakers": [
+        "pfeifer",
+        "gerlind",
+        "muenzer",
+        "hans"
+      ],
+      "title": "V. Akt. | 5. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 36,
+      "speakers": [
+        "helldrungen",
+        "hans",
+        "dietrich",
+        "probst",
+        "landgraf",
+        "muenzer",
+        "roder"
+      ],
+      "title": "V. Akt. | 6. Scene.",
+      "type": "scene"
+    }
+  ],
+  "genre": null,
+  "authors": [
+    {
+      "name": "Alberti, Konrad",
+      "key": "pnd:116009926"
+    }
+  ],
+  "corpus": "ger",
+  "author": {
+    "name": "Alberti, Konrad",
+    "warning": "The single author property is deprecated. Use the array of 'authors' instead!"
+  },
+  "name": "alberti-brot",
+  "originalSource": "Conrad Alberti: Brot! Leipzig: Verlag von Wilhelm Friedrich, 1888.",
+  "allInIndex": 0.9444444444444444,
+  "allInSegment": 34,
+  "yearPremiered": null,
+  "yearPrinted": 1888,
+  "yearNormalized": 1888,
+  "wikidataId": "Q51370104",
+  "subtitle": "Ein soziales Schauspiel in fünf Akten",
+  "title": "Brot!",
+  "yearWritten": 1888,
+  "source": {
+    "name": "TextGrid Repository",
+    "url": "http://www.textgridrep.org/textgrid:jkjf.0"
+  },
+  "id": "ger000171",
+  "cast": [
+    {
+      "sex": "MALE",
+      "name": "Dietrich",
+      "isGroup": false,
+      "id": "dietrich"
+    },
+    {
+      "sex": "MALE",
+      "name": "Helldrungen",
+      "isGroup": false,
+      "id": "helldrungen"
+    },
+    {
+      "sex": "MALE",
+      "name": "Erich",
+      "isGroup": false,
+      "id": "erich"
+    },
+    {
+      "sex": "FEMALE",
+      "name": "Gräfin",
+      "isGroup": false,
+      "id": "graefin"
+    },
+    {
+      "sex": "MALE",
+      "name": "Liborius",
+      "isGroup": false,
+      "id": "liborius"
+    },
+    {
+      "sex": "MALE",
+      "name": "Rüdiger",
+      "isGroup": false,
+      "id": "ruediger"
+    },
+    {
+      "sex": "MALE",
+      "name": "Probst",
+      "isGroup": false,
+      "id": "probst"
+    },
+    {
+      "sex": "FEMALE",
+      "name": "Gerlind",
+      "isGroup": false,
+      "id": "gerlind"
+    },
+    {
+      "sex": "MALE",
+      "name": "Ein Knappe",
+      "isGroup": false,
+      "id": "ein_knappe"
+    },
+    {
+      "sex": "FEMALE",
+      "name": "Die alte Steimann",
+      "isGroup": false,
+      "id": "die_alte_steimann"
+    },
+    {
+      "sex": "FEMALE",
+      "name": "Frau Hüfer",
+      "isGroup": false,
+      "id": "frau_huefer"
+    },
+    {
+      "sex": "MALE",
+      "name": "Blinte",
+      "isGroup": false,
+      "id": "blinte"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Bauern (I. Akt)",
+      "isGroup": true,
+      "id": "bauern_1"
+    },
+    {
+      "sex": "MALE",
+      "name": "Engel",
+      "isGroup": false,
+      "id": "engel"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Viele Stimmen",
+      "isGroup": true,
+      "id": "viele_stimmen"
+    },
+    {
+      "sex": "MALE",
+      "name": "Thomä",
+      "isGroup": false,
+      "id": "thomae"
+    },
+    {
+      "sex": "MALE",
+      "name": "Sander",
+      "isGroup": false,
+      "id": "sander"
+    },
+    {
+      "sex": "MALE",
+      "name": "Reinhard",
+      "isGroup": false,
+      "id": "reinhard"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Alle (I. Akt)",
+      "isGroup": true,
+      "id": "alle_1"
+    },
+    {
+      "sex": "MALE",
+      "name": "Storch",
+      "isGroup": false,
+      "id": "storch"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Einige Bauern",
+      "isGroup": true,
+      "id": "einige_bauern"
+    },
+    {
+      "sex": "MALE",
+      "name": "Pfeifer",
+      "isGroup": false,
+      "id": "pfeifer"
+    },
+    {
+      "sex": "MALE",
+      "name": "Hans",
+      "isGroup": false,
+      "id": "hans"
+    },
+    {
+      "sex": "MALE",
+      "name": "Münzer",
+      "isGroup": false,
+      "id": "muenzer"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Ein Theil der Bauern (I. Akt)",
+      "isGroup": true,
+      "id": "ein_theil_der_bauern_1"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Stimmen (vor der Thür)",
+      "isGroup": true,
+      "id": "stimmen_vor_der_thuer"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Bauern (II. Akt)",
+      "isGroup": true,
+      "id": "bauern_2"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Ein Theil der Bauern (II. Akt)",
+      "isGroup": true,
+      "id": "ein_theil_der_bauern_2"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Lärm (draußen vor der Scene)",
+      "isGroup": true,
+      "id": "laerm_draussen_vor_der_scene"
+    },
+    {
+      "sex": "MALE",
+      "name": "Roder",
+      "isGroup": false,
+      "id": "roder"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Lärm (hinter der Scene)",
+      "isGroup": true,
+      "id": "laerm_hinter_der_scene"
+    },
+    {
+      "sex": "FEMALE",
+      "name": "Weiber",
+      "isGroup": true,
+      "id": "weiber"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Alle (II. Akt)",
+      "isGroup": true,
+      "id": "alle_2"
+    },
+    {
+      "sex": "MALE",
+      "name": "Luther",
+      "isGroup": false,
+      "id": "luther"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Stimmen (hinter der Scene)",
+      "isGroup": true,
+      "id": "stimmen_hinter_der_scene"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Wenige Stimmen",
+      "isGroup": true,
+      "id": "wenige_stimmen"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Starker Chor",
+      "isGroup": true,
+      "id": "starker_chor"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Anderer Chor",
+      "isGroup": true,
+      "id": "anderer_chor"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Stimmen (durcheinander)",
+      "isGroup": true,
+      "id": "stimmen_durcheinander"
+    },
+    {
+      "sex": "FEMALE",
+      "name": "Jacobe",
+      "isGroup": false,
+      "id": "jacobe"
+    },
+    {
+      "sex": "FEMALE",
+      "name": "Frauen",
+      "isGroup": true,
+      "id": "frauen"
+    },
+    {
+      "sex": "MALE",
+      "name": "Ein Knecht (III/6)",
+      "isGroup": false,
+      "id": "ein_knecht_3-6a"
+    },
+    {
+      "sex": "MALE",
+      "name": "Ein Knecht (III/6)",
+      "isGroup": false,
+      "id": "ein_knecht_3-6b"
+    },
+    {
+      "sex": "MALE",
+      "name": "Ein Knecht (III/7)",
+      "isGroup": false,
+      "id": "ein_knecht_3-7"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Bauern (IV. Akt)",
+      "isGroup": true,
+      "id": "bauern_4"
+    },
+    {
+      "sex": "MALE",
+      "name": "Wache",
+      "isGroup": false,
+      "id": "wache"
+    },
+    {
+      "sex": "MALE",
+      "name": "Landgraf",
+      "isGroup": false,
+      "id": "landgraf"
+    },
+    {
+      "sex": "UNKNOWN",
+      "name": "Bauern (V. Akt)",
+      "isGroup": true,
+      "id": "bauern_5"
+    },
+    {
+      "sex": "MALE",
+      "name": "Einige Landsknechte",
+      "isGroup": true,
+      "id": "einige_landsknechte"
+    }
+  ]
+}
