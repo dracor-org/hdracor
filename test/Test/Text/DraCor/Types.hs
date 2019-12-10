@@ -12,8 +12,8 @@ import Text.DraCor.Types
 
 test_info = do
   s <- B.readFile "test/examples/info"
-  assertEqual True (isJust (decode s :: Maybe API))
-  assertEqual (Just "DraCor API")  (fmap apiName $ (decode s :: Maybe API))
+  assertEqual True (isJust (decode s :: Maybe Info))
+  assertEqual (Just "DraCor API")  (fmap apiName $ (decode s :: Maybe Info))
   
 test_corpora = do
   s <- B.readFile "test/examples/corpora"

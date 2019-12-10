@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d117b7859427503acf88eff6fa4441551a68a3646b2da153eafdcd9ec4093527
+-- hash: 146f7bc7726771a53ce5c528e0f33c5ed8e909836c441a998e22f5782d3ca421
 
 name:           hdracor
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Text.DraCor.API
       Text.DraCor.Types
       Text.DraCor.Utils
   other-modules:

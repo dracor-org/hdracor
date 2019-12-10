@@ -21,7 +21,7 @@ type Year = Text
 type YearInt = Int
 
 
-data API = API
+data Info = Info
   { apiName :: Text
   , apiStatus :: Text
   , apiExistdb :: Text
@@ -29,7 +29,7 @@ data API = API
   } deriving (Generic, Show, Eq)
 
 
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''API)
+$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''Info)
 
 
 data Node = Node
