@@ -128,6 +128,10 @@ data Play = Play
   , plyPremiereYear :: Maybe Year
   , plyWrittenYear :: Maybe Year
   , plyNetworkdataCsvUrl :: Maybe URL
+  -- -- deprecated meta data, see issue #83 of dracor-api
+  -- , plyPrintYear :: Maybe Text
+  -- , plyPremiereYear :: Maybe Text
+  -- , plyWrittenYear :: Maybe Text
   -- Scenes
   , plySegments :: Maybe [Scene]
   -- characters
@@ -138,6 +142,7 @@ data Play = Play
 
 $(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''Play)
 
+-- needed for api fun /corpora/{name}
 data PlayFromCorpusList = PlayFromCorpusList
   { plyflId :: Maybe Text
   , plyflName :: Maybe Text
@@ -145,9 +150,9 @@ data PlayFromCorpusList = PlayFromCorpusList
   , plyflSubtitle :: Maybe Text
   , plyflAuthors :: Maybe [Author]
   , plyflAuthor :: Maybe Author
-  , plyflYearNormalized :: Maybe Year
   , plyflSource :: Maybe Text -- not Source
   , plyflSourceUrl :: Maybe URL
+  , plyflYearNormalized :: Maybe Year -- Other type than in Play!!!
   , plyflPrintYear :: Maybe Year
   , plyflPremiereYear :: Maybe Year
   , plyflWrittenYear :: Maybe Year
@@ -157,7 +162,7 @@ data PlayFromCorpusList = PlayFromCorpusList
   } deriving (Generic, Show, Eq)
 
 -- instance FromJSON Play
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 5} ''PlayFromList)
+$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 5} ''PlayFromCorpusList)
 
 
 data Corpus = Corpus

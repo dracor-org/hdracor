@@ -85,3 +85,20 @@ objects in `nodes`.
 
 Regards,
 Chris
+
+
+# Type of source #
+
+Hi,
+
+in API function `corpora/{corpusname}` the type of `source` is a
+String, whilel in API function `corpora/{corpusname}/play/{playname}`
+its type is an object with two keys, `name` and `url`. This
+information isn't present present on the plays listed in
+`corpara/{corpusname}/metadata` - which does not matter.
+
+The inconsistency of the type makes writing a wrapper for the API in a
+statically typed language difficult.
+
+Regards,
+Chris
