@@ -13,6 +13,8 @@ import qualified Data.Text as T
 import qualified Data.Aeson.TH as ATH
 import Data.Foldable
 import Data.Aeson.Types
+import Control.Monad
+import Control.Applicative
 
 import Text.DraCor.Types
 import Text.DraCor.CommonJSON
@@ -82,7 +84,9 @@ parseMetadata = withObject "metadata" $ \s -> Metadata
   <*> s .:? "title"
   <*> s .:? "subtitle"
   <*> s .:? "authors" .!= []
-  <*> s .:? "source"  -- FIXME
+  --  <*> s .:? "source"  -- FIXME
+  <*> (fmap (sourceName) $
+       ((explicitParseFieldMaybe parseSource s "source") .!= (Source Nothing Nothing)))
   <*> s .:? "sourceUrl"
   <*> s .:? "originalSource" -- deprecated?
   <*> s .:? "yearPremiered"

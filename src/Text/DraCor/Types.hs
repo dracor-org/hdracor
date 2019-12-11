@@ -52,6 +52,9 @@ data Source
   | SimpleSource { srcSource :: Text }
   deriving (Generic, Show, Eq)
 
+sourceName :: Source -> Maybe Text
+sourceName (Source n _) = n
+sourceName (SimpleSource n) = Just n
 
 data CastItem = CastItem
   { cstiId :: Maybe Text              -- ^ The ID used in the @who attribute of TEI

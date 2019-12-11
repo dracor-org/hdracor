@@ -1,0 +1,79 @@
+{
+  "segments": [
+    {
+      "number": 1,
+      "speakers": [
+        "dietrich",
+        "helldrungen",
+        "erich"
+      ],
+      "title": "I. Akt. | 1. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 2,
+      "speakers": [
+        "graefin",
+        "helldrungen",
+        "dietrich"
+      ],
+      "title": "I. Akt. | 2. Scene.",
+      "type": "scene"
+    },
+    {
+      "number": 3,
+      "speakers": [
+        "liborius",
+        "graefin",
+        "dietrich",
+        "ruediger",
+        "helldrungen",
+        "erich"
+      ],
+      "title": "I. Akt. | 3. Scene.",
+      "type": "scene"
+    }
+  ],
+  "genre": null,
+  "authors": [
+    {
+      "name": "Alberti, Konrad",
+      "key": "pnd:116009926"
+    }
+  ],
+  "corpus": "ger",
+  "author": {
+    "name": "Alberti, Konrad",
+    "warning": "The single author property is deprecated. Use the array of 'authors' instead!"
+  },
+  "name": "alberti-brot",
+  "originalSource": "Conrad Alberti: Brot! Leipzig: Verlag von Wilhelm Friedrich, 1888.",
+  "allInIndex": 0.9444444444444444,
+  "allInSegment": 34,
+  "yearPremiered": null,
+  "yearPrinted": 1888,
+  "yearNormalized": 1888,
+  "wikidataId": "Q51370104",
+  "subtitle": "Ein soziales Schauspiel in fünf Akten",
+  "title": "Brot!",
+  "yearWritten": 1888,
+  "source": {
+    "name": "TextGrid Repository",
+    "url": "http://www.textgridrep.org/textgrid:jkjf.0"
+  },
+  "id": "ger000171",
+  "cast": [
+    {
+      "sex": "MALE",
+      "name": "Dietrich",
+      "isGroup": false,
+      "id": "dietrich"
+    },
+    {
+      "sex": "MALE",
+      "name": "Helldrungen",
+      "isGroup": false,
+      "id": "helldrungen"
+    }
+  ]
+}

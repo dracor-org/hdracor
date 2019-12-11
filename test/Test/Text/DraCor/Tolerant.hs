@@ -27,6 +27,17 @@ test_sceneNoSpeakers = do
 
 
 test_metadata = do
+  s <- B.readFile "test/examples/metadata.json"
+  assertEqual True (isJust (decode s :: Maybe Metadata))
+  assertEqual (Just [ Author
+                      { authrName = Just "Alberti, Konrad"
+                      , authrKey = Just "pnd:116009926"
+                      } ])
+    (fmap mtdAuthors (decode s :: Maybe Metadata))
+  assertEqual (Just "TextGrid Repository")
+    (join $ fmap mtdSource (decode s :: Maybe Metadata))
+
+test_metadata2 = do
   s <- B.readFile "test/examples/metadata2.json"
   assertEqual True (isJust (decode s :: Maybe Metadata))
   assertEqual (Just [ Author
@@ -34,6 +45,17 @@ test_metadata = do
                       , authrKey = Just "pnd:116009926"
                       } ])
     (fmap mtdAuthors (decode s :: Maybe Metadata))
+
+test_metadata3 = do
+  s <- B.readFile "test/examples/metadata3.json"
+  assertEqual True (isJust (decode s :: Maybe Metadata))
+  assertEqual (Just [ Author
+                      { authrName = Just "Alberti, Konrad"
+                      , authrKey = Just "pnd:116009926"
+                      } ])
+    (fmap mtdAuthors (decode s :: Maybe Metadata))
+  assertEqual (Just "TextGrid Repository")
+    (join $ fmap mtdSource (decode s :: Maybe Metadata))
 
 
 -- * high level: data presented by the api
