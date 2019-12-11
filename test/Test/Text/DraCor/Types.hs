@@ -7,8 +7,27 @@ import Test.Framework
 import Data.Maybe
 import Data.Aeson
 import qualified Data.ByteString.Lazy as B
+import Control.Monad
 
 import Text.DraCor.Types
+import Text.DraCor.IntolerantJSON
+
+-- * low level: logical parts of data returned by the api
+
+test_scene = do
+  s <- B.readFile "test/examples/scene1.json"
+  assertEqual True (isJust (decode s :: Maybe Scene))
+  assertEqual
+    (Just ["dietrich", "helldrungen", "erich"])
+    (fmap scnSpeakers (decode s :: Maybe Scene))
+  
+test_sceneNoSpeakers = do
+  s <- B.readFile "test/examples/scene2.json"
+  assertEqual True (isJust (decode s :: Maybe Scene))
+
+
+
+-- * high level: data presented by the api
 
 test_info = do
   s <- B.readFile "test/examples/info"

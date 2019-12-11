@@ -1,14 +1,10 @@
-{-# LANGUAGE TemplateHaskell, DeriveGeneric, DuplicateRecordFields #-}
+{-# LANGUAGE DeriveGeneric #-}
 module Text.DraCor.Types
   where
 
 import Data.Text (Text)
 import GHC.Generics
-import Data.Aeson.TH
-
-import Text.DraCor.Utils
-
-
+-- import qualified Data.Aeson.TH as ATH
 
 
 -- * Records for storing json data from the DraCor API
@@ -20,7 +16,7 @@ type URL = Text
 type Year = Text
 type YearInt = Int
 
-
+-- | 'Info' is a record for version information etc. about the API.
 data Info = Info
   { apiName :: Text
   , apiStatus :: Text
@@ -29,49 +25,40 @@ data Info = Info
   } deriving (Generic, Show, Eq)
 
 
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''Info)
-
-
+-- | A network node with node node-specific metrics.
 data Node = Node
-  { nodeWeightedDegree :: Maybe Int
+  { nodeId :: Text              -- ^ the ID of the node, must be given.
+  , nodeWeightedDegree :: Maybe Int
   , nodeDegree :: Maybe Int
   , nodeCloseness :: Maybe Float
   , nodeEigenvector :: Maybe Float
-  , nodeId :: Maybe Text
   , nodeBetweenness :: Maybe Float
   } deriving (Show, Eq, Generic)
 
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 4} ''Node)
 
-
+-- | A scene of a play and its speakers or persons on stage.
 data Scene = Scene
-  { scnNumber :: Maybe Int
+  { scnNumber :: Int            -- ^ the running number of the scene, must be given
   , scnTitle :: Maybe Text
-  , scnSpeakers :: Maybe [Text]
+  , scnSpeakers :: [Text]
   , scnType :: Maybe Text
   } deriving (Generic, Show, Eq)
 
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''Scene)
--- instance FromJSON Scene
 
-
-data Source = Source
+data Source
+  = Source
   { srcName :: Maybe Text
   , srcUrl :: Maybe URL
-  } deriving (Generic, Show, Eq)
-
--- instance FromJSON Source
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''Source)
+  } 
+  -- | SimpleSource Text
+  deriving (Generic, Show, Eq)
 
 data CastItem = CastItem
-  { cstiSex :: Maybe Text
+  { cstiId :: Maybe Text              -- ^ The ID used in the @who attribute of TEI
   , cstiName :: Maybe Text
+  , cstiSex :: Maybe Text
   , cstiIsGroup :: Maybe Bool
-  , cstiId :: Maybe Text
   } deriving (Generic, Show, Eq)
-
--- instance FromJSON CastItem
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 4} ''CastItem)
 
 
 data Author = Author
@@ -80,8 +67,28 @@ data Author = Author
   , warning :: Maybe Text -- deprecation warning
   } deriving (Generic, Show, Eq)
 
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 5} ''Author)
--- instance FromJSON Author
+
+data Metrics = Metrics
+  { mtrSize :: Maybe Int
+  , mtrAverageClustering :: Maybe Float
+  , mtrNumOfPersonGroups :: Maybe Int
+  , mtrDensity :: Maybe Float
+  , mtrAveragePathLength :: Maybe Float
+  , mtrMaxDegreeIds :: Maybe [Text]  -- Maybe [Text]
+  , mtrAverageDegree :: Maybe Float
+  , mtrDiameter :: Maybe Int
+  , mtrMaxDegree :: Maybe Int
+  , mtrNumOfSpeakers :: Maybe Int
+  , mtrNumConnectedComponents :: Maybe Int
+  , mtrNumOfSpeakersFemale :: Maybe Int
+  , mtrNumOfSpeakersMale :: Maybe Int
+  , mtrNumOfSpeakersUnknown :: Maybe Int
+  , mtrNumOfSegments :: Maybe Int
+  , mtrNumOfActs :: Maybe Int
+  , mtrNetworkSize :: Maybe Int
+  , mtrAllInIndex :: Maybe Float
+  , mtrAllInSegment :: Maybe Int
+  } deriving (Show, Eq, Generic)
 
 
 data Play = Play
@@ -140,8 +147,6 @@ data Play = Play
   , plyNodes :: Maybe [Node]
   } deriving (Generic, Show, Eq)
 
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 3} ''Play)
-
 -- needed for api fun /corpora/{name}
 data PlayFromCorpusList = PlayFromCorpusList
   { plyflId :: Maybe Text
@@ -161,8 +166,6 @@ data PlayFromCorpusList = PlayFromCorpusList
   , plyflWikidataId :: Maybe Text
   } deriving (Generic, Show, Eq)
 
--- instance FromJSON Play
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 5} ''PlayFromCorpusList)
 
 
 data Corpus = Corpus
@@ -173,7 +176,5 @@ data Corpus = Corpus
   , crpsDramas :: Maybe [PlayFromCorpusList]  -- FIXME: should be Maybe [Play]
   } deriving (Generic, Show, Eq)
 
-$(deriveJSON defaultOptions{fieldLabelModifier = modifyField 4} ''Corpus)
--- instance FromJSON Corpus
 
 

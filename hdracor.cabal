@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 146f7bc7726771a53ce5c528e0f33c5ed8e909836c441a998e22f5782d3ca421
+-- hash: e5eb7d7763c735be7cbfd3c57e18916a92c608bef3b59ecbf541a50be6dbe389
 
 name:           hdracor
 version:        0.1.0.0
@@ -15,7 +15,6 @@ author:         Author name here
 maintainer:     example@example.com
 copyright:      2019 Author name here
 license:        BSD3
-license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
@@ -28,6 +27,9 @@ source-repository head
 library
   exposed-modules:
       Text.DraCor.API
+      Text.DraCor.CommonJSON
+      Text.DraCor.IntolerantJSON
+      Text.DraCor.TolerantJSON
       Text.DraCor.Types
       Text.DraCor.Utils
   other-modules:

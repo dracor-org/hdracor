@@ -7,6 +7,7 @@ import qualified Data.ByteString.Lazy as B
 import Data.Aeson
 
 import Text.DraCor.Types
+import Text.DraCor.TolerantJSON
 
 -- * Public
 
