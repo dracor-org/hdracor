@@ -12,3 +12,24 @@ import qualified Data.Aeson.TH as ATH
 
 import Text.DraCor.Types
 import Text.DraCor.CommonJSON
+import Text.DraCor.Utils
+
+
+-- * JSON for 'Source'
+
+$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Source)
+
+
+-- * JSON for 'Play'
+
+$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Play)
+
+
+-- * JSON for 'PlayFromCorpusList'
+
+$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 5} ''PlayFromCorpusList)
+
+
+-- * JSON for 'Corpus'
+
+$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 4} ''Corpus)

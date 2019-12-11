@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -F -pgmF htfpp #-}
 {-# LANGUAGE OverloadedStrings #-}
-module Test.Text.DraCor.Types
+module Test.Text.DraCor.Intolerant
   where
 
 import Test.Framework
@@ -49,7 +49,7 @@ test_corporaGerMetadata = do
 
 test_corporaGerPlayAlbertiBrot = do
   s <- B.readFile "test/examples/corpora-ger-play-alberti-brot"
-  assertEqual True (isJust (decode s :: Maybe Play))
+  assertEqual True (isNothing (decode s :: Maybe Play))
 
 -- see issue #87 of the dracor-api
 test_corporaGerPlayAlbertiBrotMetrics = do

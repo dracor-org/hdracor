@@ -8,6 +8,8 @@ import Data.Aeson
 import Data.Maybe
 import qualified Data.Text as T
 import qualified Data.Aeson.TH as ATH
+import Data.Foldable
+import Data.Aeson.Types
 
 import Text.DraCor.Types
 import Text.DraCor.Utils
@@ -16,11 +18,6 @@ import Text.DraCor.Utils
 -- * JSON parser for 'Info'
 
 $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Info)
-
-
--- * JSON for 'Source'
-
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Source)
 
 
 -- * JSON for 'Node'
@@ -50,19 +47,4 @@ $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 4} ''Ca
 -- * JSON for 'Author'
 
 $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 5} ''Author)
-
-
--- * JSON for 'Play'
-
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Play)
-
-
--- * JSON for 'PlayFromCorpusList'
-
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 5} ''PlayFromCorpusList)
-
-
--- * JSON for 'Corpus'
-
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 4} ''Corpus)
 

@@ -4,7 +4,6 @@ module Text.DraCor.Types
 
 import Data.Text (Text)
 import GHC.Generics
--- import qualified Data.Aeson.TH as ATH
 
 
 -- * Records for storing json data from the DraCor API
@@ -50,8 +49,9 @@ data Source
   { srcName :: Maybe Text
   , srcUrl :: Maybe URL
   } 
-  -- | SimpleSource Text
+  | SimpleSource { srcSource :: Text }
   deriving (Generic, Show, Eq)
+
 
 data CastItem = CastItem
   { cstiId :: Maybe Text              -- ^ The ID used in the @who attribute of TEI
@@ -64,7 +64,32 @@ data CastItem = CastItem
 data Author = Author
   { authrName :: Maybe Text
   , authrKey :: Maybe Text
-  , warning :: Maybe Text -- deprecation warning
+  } deriving (Generic, Show, Eq)
+
+
+data Metadata = Metadata
+  { mtdId :: Text
+  , mtdName :: Text
+  , mtdCorpus :: Maybe Text
+  -- , mtdPlayName :: Maybe Text -- redundant
+  , mtdGenre :: Maybe Text
+  , mtdTitle :: Maybe Text
+  , mtdSubtitle :: Maybe Text
+  , mtdAuthors :: [Author]
+  -- , mtdAuthor :: Maybe Author   -- ^ deprecated
+  , mtdSource :: Maybe Text
+  , mtdSourceUrl :: Maybe URL
+  , mtdOriginalSource :: Maybe Text
+  , mtdYearPremiered :: Maybe YearInt
+  , mtdYearPrinted :: Maybe YearInt
+  , mtdYearNormalized :: Maybe YearInt
+  , mtdYearWritten :: Maybe YearInt
+  , mtdWikidataId :: Maybe Text
+  , mtdNetworkdataCsvUrl :: Maybe URL
+  -- -- deprecated meta data, see issue #83 of dracor-api
+  -- , mtdPrintYear :: Maybe Text
+  -- , mtdPremiereYear :: Maybe Text
+  -- , mtdWrittenYear :: Maybe Text
   } deriving (Generic, Show, Eq)
 
 
@@ -129,7 +154,7 @@ data Play = Play
   , plyWikidataId :: Maybe Text
   , plySubtitle :: Maybe Text
   , plyTitle :: Maybe Text
-  , plySource :: Maybe Source
+  , plySource :: Maybe Text
   , plySourceUrl :: Maybe URL
   , plyPrintYear :: Maybe Year
   , plyPremiereYear :: Maybe Year
