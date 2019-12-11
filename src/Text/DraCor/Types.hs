@@ -56,6 +56,11 @@ sourceName :: Source -> Maybe Text
 sourceName (Source n _) = n
 sourceName (SimpleSource n) = Just n
 
+sourceUrl :: Source -> Maybe URL
+sourceUrl (Source _ u) = u
+sourceUrl (SimpleSource _) = Nothing
+
+
 data CastItem = CastItem
   { cstiId :: Maybe Text              -- ^ The ID used in the @who attribute of TEI
   , cstiName :: Maybe Text
@@ -74,15 +79,14 @@ data Metadata = Metadata
   { mtdId :: Text
   , mtdName :: Text
   , mtdCorpus :: Maybe Text
-  -- , mtdPlayName :: Maybe Text -- redundant
+  -- , mtdPlayName :: Maybe Text -- is redundant
   , mtdGenre :: Maybe Text
   , mtdTitle :: Maybe Text
   , mtdSubtitle :: Maybe Text
   , mtdAuthors :: [Author]
-  -- , mtdAuthor :: Maybe Author   -- ^ deprecated
   , mtdSource :: Maybe Text
   , mtdSourceUrl :: Maybe URL
-  , mtdOriginalSource :: Maybe Text
+  , mtdOriginalSource :: Maybe Text -- What's the difference to mdtSource?
   , mtdYearPremiered :: Maybe YearInt
   , mtdYearPrinted :: Maybe YearInt
   , mtdYearNormalized :: Maybe YearInt

@@ -36,6 +36,8 @@ test_metadata = do
     (fmap mtdAuthors (decode s :: Maybe Metadata))
   assertEqual (Just "TextGrid Repository")
     (join $ fmap mtdSource (decode s :: Maybe Metadata))
+  assertEqual (Just "http://www.textgridrep.org/textgrid:jkjf.0")
+    (join $ fmap mtdSourceUrl (decode s :: Maybe Metadata))
 
 test_metadata2 = do
   s <- B.readFile "test/examples/metadata2.json"
@@ -45,6 +47,10 @@ test_metadata2 = do
                       , authrKey = Just "pnd:116009926"
                       } ])
     (fmap mtdAuthors (decode s :: Maybe Metadata))
+  assertEqual Nothing
+    (join $ fmap mtdSource (decode s :: Maybe Metadata))
+  assertEqual Nothing
+    (join $ fmap mtdSourceUrl (decode s :: Maybe Metadata))
 
 test_metadata3 = do
   s <- B.readFile "test/examples/metadata3.json"
@@ -56,6 +62,8 @@ test_metadata3 = do
     (fmap mtdAuthors (decode s :: Maybe Metadata))
   assertEqual (Just "TextGrid Repository")
     (join $ fmap mtdSource (decode s :: Maybe Metadata))
+  assertEqual (Just "https://fest.net")
+    (join $ fmap mtdSourceUrl (decode s :: Maybe Metadata))
 
 
 -- * high level: data presented by the api

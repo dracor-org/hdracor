@@ -84,11 +84,15 @@ parseMetadata = withObject "metadata" $ \s -> Metadata
   <*> s .:? "title"
   <*> s .:? "subtitle"
   <*> s .:? "authors" .!= []
-  --  <*> s .:? "source"  -- FIXME
+  -- Workaround for issue #88 of dracor-api:
   <*> (fmap (sourceName) $
        ((explicitParseFieldMaybe parseSource s "source") .!= (Source Nothing Nothing)))
-  <*> s .:? "sourceUrl"
-  <*> s .:? "originalSource" -- deprecated?
+  <*> asum [ fmap Just $ s .: "sourceUrl" -- not .:?, because we want it failable
+           , (fmap (sourceUrl) $
+              ((explicitParseFieldMaybe parseSource s "source") .!= (Source Nothing Nothing)))
+           ]
+  <*> s .:? "originalSource"
+  -- Workaround for issue #83 of dracor-api: TODO
   <*> s .:? "yearPremiered"
   <*> s .:? "yearPrinted"
   <*> s .:? "yearNormalized"
