@@ -15,6 +15,8 @@ import Data.Foldable
 import Data.Aeson.Types
 import Control.Monad
 import Control.Applicative
+import Data.Either
+import Data.Text.Read
 
 import Text.DraCor.Types
 import Text.DraCor.CommonJSON
@@ -87,19 +89,29 @@ parseMetadata = withObject "metadata" $ \s -> Metadata
   -- Workaround for issue #88 of dracor-api:
   <*> (fmap (sourceName) $
        ((explicitParseFieldMaybe parseSource s "source") .!= (Source Nothing Nothing)))
+  -- Workaround for issue #88 of dracor-api:
   <*> asum [ fmap Just $ s .: "sourceUrl" -- not .:?, because we want it failable
            , (fmap (sourceUrl) $
               ((explicitParseFieldMaybe parseSource s "source") .!= (Source Nothing Nothing)))
            ]
   <*> s .:? "originalSource"
-  -- Workaround for issue #83 of dracor-api: TODO
-  <*> s .:? "yearPremiered"
-  <*> s .:? "yearPrinted"
-  <*> s .:? "yearNormalized"
-  <*> s .:? "yearWritten"
+  -- Workaround for issue #83 of dracor-api:
+  <*> tolerateStringNum (signed decimal) s "yearPremiered" "premiereYear"
+  <*> tolerateStringNum (signed decimal) s "yearPrinted" "printYear"
+  <*> tolerateStringNum (signed decimal) s "yearNormalized" "normalizedYear"
+  <*> tolerateStringNum (signed decimal) s "yearWritten" "writtenYear"
   <*> s .:? "wikidataId"
   <*> s .:? "networkdataCsvUrl"
   
+
+tolerateStringNum :: (FromJSON a) => Reader a -> Object -> T.Text -> T.Text -> Parser (Maybe a)
+tolerateStringNum reader v numField strField = asum
+  [ fmap Just $ v .: numField -- not .:?, because we want it to fail if not present
+  , fmap (join . (fmap ((either (pure Nothing) (Just . fst)) . reader))) $
+    (v .:? strField :: Parser (Maybe T.Text))
+  ]
+
+
 
 
 -- * JSON for 'Play'
