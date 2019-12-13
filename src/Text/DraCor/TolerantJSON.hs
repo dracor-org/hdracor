@@ -77,6 +77,9 @@ instance ToJSON Metrics
 instance FromJSON Metadata where
   parseJSON = parseMetadata
 
+instance ToJSON Metadata
+
+-- | Parser for 'Metadata'.
 parseMetadata :: Value -> Parser Metadata
 parseMetadata = withObject "metadata" $ \s -> Metadata
   <$> s .: "id"
@@ -103,8 +106,14 @@ parseMetadata = withObject "metadata" $ \s -> Metadata
   <*> s .:? "wikidataId"
   <*> s .:? "networkdataCsvUrl"
   
-
-tolerateStringNum :: (FromJSON a) => Reader a -> Object -> T.Text -> T.Text -> Parser (Maybe a)
+-- | Parse a numerical value or a string representing a numerical
+-- value (in an other field).
+tolerateStringNum :: (FromJSON a) =>
+                     Reader a   -- ^ a reader from Data.Text.Read
+                  -> Object     -- ^ the json object
+                  -> T.Text     -- ^ the name of the numerical field
+                  -> T.Text     -- ^ name of (alternative) text field
+                  -> Parser (Maybe a)
 tolerateStringNum reader v numField strField = asum
   [ fmap Just $ v .: numField -- not .:?, because we want it to fail if not present
   , fmap (join . (fmap ((either (pure Nothing) (Just . fst)) . reader))) $
