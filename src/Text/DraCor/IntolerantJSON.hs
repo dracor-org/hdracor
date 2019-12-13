@@ -20,16 +20,16 @@ import Text.DraCor.Utils
 $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Source)
 
 
--- * JSON for 'Play'
+-- -- * JSON for 'Play'
 
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Play)
-
-
--- * JSON for 'PlayFromCorpusList'
-
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 5} ''PlayFromCorpusList)
+-- $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Play)
 
 
--- * JSON for 'Corpus'
+-- -- * JSON for 'PlayFromCorpusList'
 
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 4} ''Corpus)
+-- $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 5} ''PlayFromCorpusList)
+
+
+-- -- * JSON for 'Corpus'
+
+-- $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 4} ''Corpus)

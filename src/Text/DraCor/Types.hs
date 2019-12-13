@@ -87,16 +87,13 @@ data Metadata = Metadata
   , mtdSource :: Maybe Text
   , mtdSourceUrl :: Maybe URL
   , mtdOriginalSource :: Maybe Text -- What's the difference to mdtSource?
+    -- see issue #83 of dracor-api
   , mtdYearPremiered :: Maybe YearInt
   , mtdYearPrinted :: Maybe YearInt
   , mtdYearNormalized :: Maybe YearInt
   , mtdYearWritten :: Maybe YearInt
   , mtdWikidataId :: Maybe Text
   , mtdNetworkdataCsvUrl :: Maybe URL
-  -- -- deprecated meta data, see issue #83 of dracor-api
-  -- , mtdPrintYear :: Maybe Text
-  -- , mtdPremiereYear :: Maybe Text
-  -- , mtdWrittenYear :: Maybe Text
   } deriving (Generic, Show, Eq)
 
 
@@ -124,59 +121,16 @@ data Metrics = Metrics
 
 
 data Play = Play
-  { -- Metrics
-    plySize :: Maybe Int
-  , plyAverageClustering :: Maybe Float
-  , plyNumOfPersonGroups :: Maybe Int
-  , plyDensity :: Maybe Float
-  , plyAveragePathLength :: Maybe Float
-  , plyMaxDegreeIds :: Maybe Text  -- Maybe [Text]
-  , plyAverageDegree :: Maybe Float
-  , plyDiameter :: Maybe Int
-  , plyMaxDegree :: Maybe Int
-  , plyNumOfSpeakers :: Maybe Int
-  , plyNumConnectedComponents :: Maybe Int
-  , plyNumOfSpeakersFemale :: Maybe Int
-  , plyNumOfSpeakersMale :: Maybe Int
-  , plyNumOfSpeakersUnknown :: Maybe Int
-  , plyNumOfSegments :: Maybe Int
-  , plyWikipediaLinkCount :: Maybe Int
-  , plyNumOfActs :: Maybe Int
-  , plyNetworkSize :: Maybe Int
-  , plyAllInIndex :: Maybe Float
-  , plyAllInSegment :: Maybe Int
-  -- meta data
-  , plyId :: Maybe Text
-  , plyName :: Maybe Text
-  , plyPlayName :: Maybe Text
-  , plyGenre :: Maybe Text
-  , plyAuthors :: Maybe [Author]
-  , plyAuthor :: Maybe Author
-  , plyCorpus :: Maybe Text
-  , plyOriginalSource :: Maybe Text
-  , plyYearPremiered :: Maybe YearInt
-  , plyYearPrinted :: Maybe YearInt
-  , plyYearNormalized :: Maybe YearInt
-  , plyYearWritten :: Maybe YearInt
-  , plyWikidataId :: Maybe Text
-  , plySubtitle :: Maybe Text
-  , plyTitle :: Maybe Text
-  , plySource :: Maybe Text
-  , plySourceUrl :: Maybe URL
-  , plyPrintYear :: Maybe Year
-  , plyPremiereYear :: Maybe Year
-  , plyWrittenYear :: Maybe Year
-  , plyNetworkdataCsvUrl :: Maybe URL
-  -- -- deprecated meta data, see issue #83 of dracor-api
-  -- , plyPrintYear :: Maybe Text
-  -- , plyPremiereYear :: Maybe Text
-  -- , plyWrittenYear :: Maybe Text
-  -- Scenes
-  , plySegments :: Maybe [Scene]
-  -- characters
-  , plyCast :: Maybe [CastItem]
-  -- Nodes
-  , plyNodes :: Maybe [Node]
+  { -- meta data
+    plyMetadata :: Metadata
+    -- Metrics
+  , plyMetrics :: Metrics
+    -- Scenes
+  , plySegments :: [Scene]
+    -- characters
+  , plyCast :: [CastItem]
+    -- Nodes
+  , plyNodes :: [Node]
   } deriving (Generic, Show, Eq)
 
 -- needed for api fun /corpora/{name}

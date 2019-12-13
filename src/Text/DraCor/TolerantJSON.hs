@@ -43,31 +43,35 @@ instance ToJSON Source
 -- * JSON for 'Metrics'
 
 instance FromJSON Metrics where
-  parseJSON = withObject "metrics" $ \s -> Metrics
-    <$> s .:? "size"
-    -- Workaround for issue #85 of dracor-api:
-    <*> (fmap Just $ s .:? "averageClustering" .!= 0.0)
-    <*> s .:? "numOfPersonGroups"
-    <*> s .:? "density"
-    <*> s .:? "averagePathLength"
-    -- Workaround for issue #84 of dracor-api:
-    <*> (asum
-         [ s .:? "maxDegreeIds" -- alread a list of strings
-         , fmap (fmap (T.splitOn "|")) $ s .:? "maxDegreeIds"
-         ])
-    <*> s .:? "averageDegree"
-    <*> s .:? "diameter"
-    <*> s .:? "maxDegree"
-    <*> s .:? "numOfSpeakers"
-    <*> s .:? "numConnectedComponents"
-    <*> s .:? "numOfSpeakersFemale"
-    <*> s .:? "numOfSpeakersMale"
-    <*> s .:? "numOfSpeakersUnknown"
-    <*> s .:? "numOfSegments"
-    <*> s .:? "numOfActs"
-    <*> s .:? "networkSize"
-    <*> s .:? "allInIndex"
-    <*> s .:? "allInSegment"
+  parseJSON = parseMetrics
+
+parseMetrics :: Value -> Parser Metrics
+parseMetrics (Object s) = Metrics
+  <$> s .:? "size"
+  -- Workaround for issue #85 of dracor-api:
+  <*> (fmap Just $ s .:? "averageClustering" .!= 0.0)
+  <*> s .:? "numOfPersonGroups"
+  <*> s .:? "density"
+  <*> s .:? "averagePathLength"
+  -- Workaround for issue #84 of dracor-api:
+  <*> (asum
+        [ s .:? "maxDegreeIds" -- alread a list of strings
+        , fmap (fmap (T.splitOn "|")) $ s .:? "maxDegreeIds"
+        ])
+  <*> s .:? "averageDegree"
+  <*> s .:? "diameter"
+  <*> s .:? "maxDegree"
+  <*> s .:? "numOfSpeakers"
+  <*> s .:? "numConnectedComponents"
+  <*> s .:? "numOfSpeakersFemale"
+  <*> s .:? "numOfSpeakersMale"
+  <*> s .:? "numOfSpeakersUnknown"
+  <*> s .:? "numOfSegments"
+  <*> s .:? "numOfActs"
+  <*> s .:? "networkSize"
+  <*> s .:? "allInIndex"
+  <*> s .:? "allInSegment"
+parseMetrics _ = mzero
 
 instance ToJSON Metrics
 
@@ -81,7 +85,7 @@ instance ToJSON Metadata
 
 -- | Parser for 'Metadata'.
 parseMetadata :: Value -> Parser Metadata
-parseMetadata = withObject "metadata" $ \s -> Metadata
+parseMetadata (Object s) = Metadata
   <$> s .: "id"
   <*> s .: "name"
   <*> s .:? "corpus"
@@ -105,6 +109,7 @@ parseMetadata = withObject "metadata" $ \s -> Metadata
   <*> tolerateStringNum (signed decimal) s "yearWritten" "writtenYear"
   <*> s .:? "wikidataId"
   <*> s .:? "networkdataCsvUrl"
+parseMetadata _ = mzero
   
 -- | Parse a numerical value or a string representing a numerical
 -- value (in an other field).
@@ -121,11 +126,24 @@ tolerateStringNum reader v numField strField = asum
   ]
 
 
-
-
 -- * JSON for 'Play'
 
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Play)
+--  $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Play)
+
+
+instance ToJSON Play
+
+instance FromJSON Play where
+  parseJSON = parsePlay
+  
+parsePlay :: Value -> Parser Play
+parsePlay v@(Object o) = Play
+  <$> parseMetadata v
+  <*> parseMetrics v
+  <*> o .:? "segments" .!= []
+  <*> o .:? "cast" .!= []
+  <*> o .:? "nodes" .!= []
+parsePlay _ = mzero
 
 
 -- * JSON for 'PlayFromCorpusList'

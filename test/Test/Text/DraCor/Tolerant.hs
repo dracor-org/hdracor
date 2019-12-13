@@ -88,19 +88,42 @@ test_corpora = do
 test_corporaGer = do
   s <- B.readFile "test/examples/corpora-ger"
   assertEqual True (isJust (decode s :: Maybe Corpus))
+  -- assertEqual (Just "" ) (fmap (show . crpsDramas) $ (decode s :: Maybe Corpus))
 
 -- see issue #85 of dracor-api
 test_corporaGerMetadata = do
   s <- B.readFile "test/examples/corpora-ger-metadata"
-  assertEqual True (isJust (decode s :: Maybe [Play]))
+  let dec = (decode s :: Maybe [Play])
+  assertEqual True (isJust dec)
+  assertEqual (Just 2) (fmap length dec)
+  assertEqual (Just ["ger000171", "ger000041"])
+    (fmap (map (mtdId . plyMetadata)) dec)
+  assertEqual (Just ["alberti-brot", "alberti-im-suff"])
+    (fmap (map (mtdName . plyMetadata)) dec)
+  assertEqual (Just [Just 49, Just 14])
+    (fmap (map (mtrSize . plyMetrics)) dec)
 
 test_corporaGerPlayAlbertiBrot = do
   s <- B.readFile "test/examples/corpora-ger-play-alberti-brot"
-  assertEqual True (isJust (decode s :: Maybe Play))
+  let dec = decode s :: Maybe Play
+  assertEqual True (isJust dec)
+  assertEqual (Just "ger000171")
+    (fmap (mtdId . plyMetadata) dec)
+  assertEqual (Just "alberti-brot")
+    (fmap (mtdName . plyMetadata) dec)
+  assertEqual (Just Nothing)
+    (fmap (mtrSize . plyMetrics) dec)
 
 -- see issue #87 of the dracor-api
 test_corporaGerPlayAlbertiBrotMetrics = do
   s <- B.readFile "test/examples/corpora-ger-play-alberti-brot-metrics"
-  assertEqual True (isJust (decode s :: Maybe Play))
+  let dec = decode s :: Maybe Play
+  assertEqual True (isJust dec)
+  assertEqual (Just "ger000171")
+    (fmap (mtdId . plyMetadata) dec)
+  assertEqual (Just "alberti-brot")
+    (fmap (mtdName . plyMetadata) dec)
+  assertEqual (Just (Just 49))
+    (fmap (mtrSize . plyMetrics) dec)
 
 

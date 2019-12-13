@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 269fdf7000b90f91db377303895dbd38493b88985ad34a5a544687ac4abbff44
+-- hash: 90f48e7926348568bc3eec7c347d8bf1c86db8c7c0eca636ab9f6b1ddb0d9e2a
 
 name:           hdracor
 version:        0.1.0.0
@@ -47,7 +47,6 @@ test-suite hdracor-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Test.Text.DraCor.Intolerant
       Test.Text.DraCor.Tolerant
       Paths_hdracor
   hs-source-dirs:
