@@ -68,9 +68,11 @@ parseMetrics (Object s) = Metrics
   <*> s .:? "numOfSpeakersUnknown"
   <*> s .:? "numOfSegments"
   <*> s .:? "numOfActs"
-  <*> s .:? "networkSize"
+  -- workaround issue # of dracor-api
+  <*> tolerateStringNum decimal s "networkSize" "networkSize" --  s .:? "networkSize"
   <*> s .:? "allInIndex"
   <*> s .:? "allInSegment"
+  <*> s .:? "nodes" .!= []
 parseMetrics _ = mzero
 
 instance ToJSON Metrics
@@ -142,15 +144,21 @@ parsePlay v@(Object o) = Play
   <*> parseMetrics v
   <*> o .:? "segments" .!= []
   <*> o .:? "cast" .!= []
-  <*> o .:? "nodes" .!= []
 parsePlay _ = mzero
-
-
--- * JSON for 'PlayFromCorpusList'
-
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 5} ''PlayFromCorpusList)
 
 
 -- * JSON for 'Corpus'
 
-$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 4} ''Corpus)
+instance ToJSON Corpus
+
+instance FromJSON Corpus where
+  parseJSON = parseCorpus
+
+parseCorpus :: Value -> Parser Corpus
+parseCorpus (Object o) = Corpus
+  <$> o .:? "name"
+  <*> o .:? "title"
+  <*> o .:? "repository"
+  <*> o .:? "uri"
+  <*> o .:? "dramas" .!= []
+parseCorpus _ = mzero

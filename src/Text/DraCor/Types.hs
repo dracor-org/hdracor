@@ -12,8 +12,7 @@ import GHC.Generics
 
 type URL = Text
 
-type Year = Text
-type YearInt = Int
+type Year = Int
 
 -- | 'Info' is a record for version information etc. about the API.
 data Info = Info
@@ -87,18 +86,19 @@ data Metadata = Metadata
   , mtdSource :: Maybe Text
   , mtdSourceUrl :: Maybe URL
   , mtdOriginalSource :: Maybe Text -- What's the difference to mdtSource?
-    -- see issue #83 of dracor-api
-  , mtdYearPremiered :: Maybe YearInt
-  , mtdYearPrinted :: Maybe YearInt
-  , mtdYearNormalized :: Maybe YearInt
-  , mtdYearWritten :: Maybe YearInt
+  , mtdYearPremiered :: Maybe Year
+  , mtdYearPrinted :: Maybe Year
+  , mtdYearNormalized :: Maybe Year
+  , mtdYearWritten :: Maybe Year
   , mtdWikidataId :: Maybe Text
   , mtdNetworkdataCsvUrl :: Maybe URL
   } deriving (Generic, Show, Eq)
 
 
+-- | A record of a play's metrics.
 data Metrics = Metrics
-  { mtrSize :: Maybe Int
+  { -- name, corpus and ID: Isn't it more haskell'isch to have it outside?
+    mtrSize :: Maybe Int
   , mtrAverageClustering :: Maybe Float
   , mtrNumOfPersonGroups :: Maybe Int
   , mtrDensity :: Maybe Float
@@ -117,6 +117,8 @@ data Metrics = Metrics
   , mtrNetworkSize :: Maybe Int
   , mtrAllInIndex :: Maybe Float
   , mtrAllInSegment :: Maybe Int
+    -- Nodes
+  , mtrNodes :: [Node]
   } deriving (Show, Eq, Generic)
 
 
@@ -129,29 +131,7 @@ data Play = Play
   , plySegments :: [Scene]
     -- characters
   , plyCast :: [CastItem]
-    -- Nodes
-  , plyNodes :: [Node]
   } deriving (Generic, Show, Eq)
-
--- needed for api fun /corpora/{name}
-data PlayFromCorpusList = PlayFromCorpusList
-  { plyflId :: Maybe Text
-  , plyflName :: Maybe Text
-  , plyflTitle :: Maybe Text
-  , plyflSubtitle :: Maybe Text
-  , plyflAuthors :: Maybe [Author]
-  , plyflAuthor :: Maybe Author
-  , plyflSource :: Maybe Text -- not Source
-  , plyflSourceUrl :: Maybe URL
-  , plyflYearNormalized :: Maybe Year -- Other type than in Play!!!
-  , plyflPrintYear :: Maybe Year
-  , plyflPremiereYear :: Maybe Year
-  , plyflWrittenYear :: Maybe Year
-  , plyflNetworkSize :: Maybe Text -- Int
-  , plyflNetworkdataCsvUrl :: Maybe URL
-  , plyflWikidataId :: Maybe Text
-  } deriving (Generic, Show, Eq)
-
 
 
 data Corpus = Corpus
@@ -159,8 +139,5 @@ data Corpus = Corpus
   , crpsTitle :: Maybe Text
   , crpsRepository :: Maybe Text
   , crpsUri :: Maybe Text
-  , crpsDramas :: Maybe [PlayFromCorpusList]  -- FIXME: should be Maybe [Play]
+  , crpsDramas :: [Play]
   } deriving (Generic, Show, Eq)
-
-
-
