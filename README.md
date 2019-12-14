@@ -75,3 +75,12 @@ Then do
 	crawldracor -h
 
 to see what it can do.
+
+## License
+
+Licensed under either of:
+
+- [BSD-3-Clause license](https://opensource.org/licenses/BSD-3-Clause)
+- [Apache License, version 2.0](https://opensource.org/licenses/Apache-2.0)
+
+As a user, you may use this code under either license, at your option.

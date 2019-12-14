@@ -1,23 +1,23 @@
 name:                hdracor
 version:             0.1.0.0
-github:              "githubuser/hdracor"
+github:              "dracor-org/hdracor"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2019 Author name here"
+author:              "Christian Lück"
+maintainer:          "christian.lueck@rub.de"
+copyright:           "2019 Christian Lück"
 
 extra-source-files:
 - README.md
 - ChangeLog.md
 
 # Metadata used when publishing your package
-# synopsis:            Short description of your package
+# synopsis:            Social Network Analysis on Dramatic Texts with Haskell
 # category:            Web
 
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Typesafe drama-analysis on dracor.org
+description:         Type Safe Functional Drama Analysis in Haskell
 
 dependencies:
 - base >= 4.7 && < 5

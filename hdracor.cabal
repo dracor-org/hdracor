@@ -4,17 +4,18 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 90f48e7926348568bc3eec7c347d8bf1c86db8c7c0eca636ab9f6b1ddb0d9e2a
+-- hash: 3320a3c103f7d9e513ef11cd842e9c074511d88da56d97ed2ac290584b3ae189
 
 name:           hdracor
 version:        0.1.0.0
-description:    Typesafe drama-analysis on dracor.org
-homepage:       https://github.com/githubuser/hdracor#readme
-bug-reports:    https://github.com/githubuser/hdracor/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2019 Author name here
+description:    Type Safe Functional Drama Analysis in Haskell
+homepage:       https://github.com/dracor-org/hdracor#readme
+bug-reports:    https://github.com/dracor-org/hdracor/issues
+author:         Christian Lück
+maintainer:     christian.lueck@rub.de
+copyright:      2019 Christian Lück
 license:        BSD3
+license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
@@ -22,7 +23,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/hdracor
+  location: https://github.com/dracor-org/hdracor
 
 library
   exposed-modules:
