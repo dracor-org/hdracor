@@ -27,6 +27,7 @@ dependencies:
 - resourcet
 - bytestring
 - text
+- optparse-applicative
 
 executables:
   crawldracororg:

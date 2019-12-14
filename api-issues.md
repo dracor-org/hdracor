@@ -108,7 +108,8 @@ Chris
 
 Hi,
 
-using the crawler I found some false types in the returned json for
+using the crawler from hdracor I found some false types in the
+returned json for
 `/corpora/ger/play/blumenthal-im-weissen-roessl/metrics`. The
 `degree`, `closeness` and `weightedDegree` for the node with the `id`
 `portier` are strings, but should be integers or `null`. Seems to be a
@@ -127,4 +128,5 @@ Regards,
 Christian
 
 PS. I made hdracor tolerant against this type inconsistency. Use
-commit 
+commit 3a84bba65676b073759cb10fb2ff1a668c496056 to reproduce. There
+are 24 more plays in gerdracor with the same issue.
