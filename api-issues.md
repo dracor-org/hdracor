@@ -102,3 +102,29 @@ statically typed language difficult.
 
 Regards,
 Chris
+
+
+## Type of degree etc. ##
+
+Hi,
+
+using the crawler I found some false types in the returned json for
+`/corpora/ger/play/blumenthal-im-weissen-roessl/metrics`. The
+`degree`, `closeness` and `weightedDegree` for the node with the `id`
+`portier` are strings, but should be integers or `null`. Seems to be a
+matter of infinitesimal values.
+
+    {
+      "weightedDegree": "0",
+      "degree": "0",
+      "closeness": "0",
+      "eigenvector": 4.343654944477457e-14,
+      "id": "portier",
+      "betweenness": "0"
+    }
+
+Regards,
+Christian
+
+PS. I made hdracor tolerant against this type inconsistency. Use
+commit 

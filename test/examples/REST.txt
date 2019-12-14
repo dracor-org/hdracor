@@ -17,3 +17,7 @@ GET https://dracor.org/api/corpora/ger/play/alberti-brot
 
 # network metrics for single play
 GET https://dracor.org/api/corpora/ger/play/alberti-brot/metrics
+
+
+# Failures found with the crawler
+GET https://dracor.org/api/corpora/ger/play/blumenthal-im-weissen-roessl/metrics
