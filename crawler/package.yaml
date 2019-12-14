@@ -30,7 +30,7 @@ dependencies:
 - optparse-applicative
 
 executables:
-  crawldracororg:
+  crawldracor:
     main:                Main.hs
     source-dirs:         app
     ghc-options:

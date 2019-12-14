@@ -18,6 +18,7 @@ data Opts = Opts
   { url :: String
   , entry :: Entry
   , verbosity :: Verbosity
+  , delay :: Int
   }
 
 data Entry
@@ -63,6 +64,12 @@ opts_ = Opts
         (long "verbose"
          <> short 'v'
          <> help "Verbose output.")))
+  <*> option auto (long "timeout"
+                   <> short 't'
+                   <> help "Timeout between http requests."
+                   <> metavar "MICROSECONDS"
+                   <> value 500000
+                   <> showDefault)
 
 
 main = execParser opts >>= run
@@ -84,9 +91,9 @@ fetch :: Opts -> (String -> IO B.ByteString)
 fetch opts = fetch' $ url opts
 
 run :: Opts -> IO ()
-run opts@(Opts _ Corpora _) = crawlCorpora opts
-run opts@(Opts _ (SingleCorpus name) _) = crawlCorpus opts name
-run opts@(Opts _ (SinglePlay corpusName playName) _) = crawlPlay opts corpusName playName
+run opts@(Opts _ Corpora _ _) = crawlCorpora opts
+run opts@(Opts _ (SingleCorpus name) _ _) = crawlCorpus opts name
+run opts@(Opts _ (SinglePlay corpusName playName) _ _) = crawlPlay opts corpusName playName
 
 crawlCorpora :: Opts -> IO ()
 crawlCorpora opts = do
@@ -113,7 +120,7 @@ crawlCorpus opts corpusName = do
       print $ "Crawling \"/corpora/"  ++ corpusName ++ "\"."
       let plays = map (T.unpack . mtdName . plyMetadata) $ crpsDramas c
       mapM_ (crawlPlay opts corpusName) plays
-  threadDelay 500000
+  threadDelay (delay opts)
 
 crawlPlay :: Opts -> String -> String -> IO ()
 crawlPlay opts corpusName playName = do
@@ -132,4 +139,4 @@ crawlPlay opts corpusName playName = do
     Nothing -> do
       print $ "Failed parsing \"corpora/" ++ corpusName ++ "/play/" ++ playName ++ "/metrics\"."
     Just _ -> return ()
-  threadDelay 500000    
+  threadDelay (delay opts)
