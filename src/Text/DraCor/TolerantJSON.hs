@@ -50,9 +50,10 @@ instance FromJSON Node where
 parseNode :: Value -> Parser Node
 parseNode (Object o) = Node
   <$> o .: "id"
-  <*> o .:? "weightedDegree"
-  <*> o .:? "degree"
-  <*> o .:? "closeness"
+  -- workaround issue # of dracor-api
+  <*> tolerateStringNum decimal o "weightedDegree" "weightedDegree" -- o .:? "weightedDegree"
+  <*> tolerateStringNum decimal o "degree" "degree" -- o .:? "degree"
+  <*> tolerateStringNum double o "closeness" "closeness" -- o .:? "closeness"
   <*> o .:? "eigenvector"
   -- workaroud issue # of dracor-api
   <*> tolerateStringNum double o "betweenness" "betweenness"

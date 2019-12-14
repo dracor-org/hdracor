@@ -28,8 +28,8 @@ data Node = Node
   { nodeId :: Text              -- ^ the ID of the node, must be given.
   , nodeWeightedDegree :: Maybe Int
   , nodeDegree :: Maybe Int
-  , nodeCloseness :: Maybe Float
-  , nodeEigenvector :: Maybe Float
+  , nodeCloseness :: Maybe Double
+  , nodeEigenvector :: Maybe Double
   , nodeBetweenness :: Maybe Double
   } deriving (Show, Eq, Generic)
 
