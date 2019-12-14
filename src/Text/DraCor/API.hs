@@ -36,8 +36,8 @@ getPlay f corpus play = do
   s <- f $ "/corpora/" ++ corpus ++ "/play/" ++ play
   return $ (decode s :: Maybe Play)
 
-getPlayMetrics :: (String -> IO B.ByteString) -> String -> String -> IO (Maybe Play)
+getPlayMetrics :: (String -> IO B.ByteString) -> String -> String -> IO (Maybe Metrics)
 getPlayMetrics f corpus play = do
   s <- f $ "/corpora/" ++ corpus ++ "/play/" ++ play ++ "/metrics"
-  return $ (decode s :: Maybe Play)
+  return $ (decode s :: Maybe Metrics)
 

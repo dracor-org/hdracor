@@ -1,0 +1,35 @@
+{
+  "size": 49,
+  "averageClustering": 0.8497673123239152,
+  "density": 0.3129251700680272,
+  "averagePathLength": 1.751700680272109,
+  "maxDegreeIds": [
+    "muenzer"
+  ],
+  "corpus": "ger",
+  "averageDegree": 15.020408163265307,
+  "name": "alberti-brot",
+  "diameter": 3,
+  "maxDegree": 40,
+  "nodes": [
+    {
+      "weightedDegree": 34,
+      "degree": 20,
+      "closeness": 0.631578947368421,
+      "eigenvector": 0.1847628240251278,
+      "id": "storch",
+      "betweenness": 0.004885830567733613
+    },
+    {
+      "weightedDegree": 6,
+      "degree": 6,
+      "closeness": 0.4897959183673469,
+      "eigenvector": 0.013230589825093958,
+      "id": "luther",
+      "betweenness": "0"
+    }
+  ],
+  "numConnectedComponents": 1,
+  "id": "ger000171",
+  "wikipediaLinkCount": 0
+}

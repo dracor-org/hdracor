@@ -30,7 +30,7 @@ data Node = Node
   , nodeDegree :: Maybe Int
   , nodeCloseness :: Maybe Float
   , nodeEigenvector :: Maybe Float
-  , nodeBetweenness :: Maybe Float
+  , nodeBetweenness :: Maybe Double
   } deriving (Show, Eq, Generic)
 
 
@@ -99,7 +99,7 @@ data Metadata = Metadata
 data Metrics = Metrics
   { -- name, corpus and ID: Isn't it more haskell'isch to have it outside?
     mtrSize :: Maybe Int
-  , mtrAverageClustering :: Maybe Float
+  , mtrAverageClustering :: Maybe Double
   , mtrNumOfPersonGroups :: Maybe Int
   , mtrDensity :: Maybe Float
   , mtrAveragePathLength :: Maybe Float

@@ -21,13 +21,12 @@ description:         Typesafe drama-analysis on dracor.org
 
 dependencies:
 - base >= 4.7 && < 5
+- aeson
+- text
+- bytestring
 
 library:
   source-dirs: src
-  dependencies:
-  - aeson
-  - text
-  - bytestring
 
 tests:
   hdracor-test:
@@ -40,6 +39,3 @@ tests:
     dependencies:
     - HTF
     - hdracor
-    - aeson
-    - text
-    - bytestring

@@ -73,6 +73,8 @@ test_metadata3 = do
   assertEqual Nothing -- neither yearPrinted nor printYear present
     (join $ fmap mtdYearPrinted (decode s :: Maybe Metadata))
 
+
+
 -- | assert toleration of issue # of dracor-api (string type networkSize)
 test_corporaGerPlay1 = do
   s <- B.readFile "test/examples/play1.json"
@@ -137,6 +139,28 @@ test_corporaGerPlayAlbertiBrotMetrics = do
     (join $ fmap mtrSize dec)
   assertEqual (Just 2)
     (fmap (length . mtrNodes) dec)
+
+-- see issue #87 of the dracor-api
+test_metrics = do
+  s <- B.readFile "test/examples/metrics.json"
+  let dec = decode s :: Maybe Metrics
+  assertEqual True (isJust dec)
+  assertEqual (Just (Just 49))
+    (fmap (mtrSize) dec)
+  assertEqual (Just 2)
+    (fmap (length . mtrNodes) dec)
+
+-- see issue #87 of the dracor-api
+test_metrics2 = do
+  s <- B.readFile "test/examples/metrics2.json"
+  let dec = decode s :: Maybe Metrics
+  assertEqual True (isJust dec)
+  assertEqual (Just (Just 49))
+    (fmap mtrSize dec)
+  -- assertEqual (Just 2)
+  --   (fmap (length . mtrNodes) dec)
+
+
 
 -- see issue #87 of the dracor-api
 test_corporaGerPlayAlbertiBrotMetricsPlay = do

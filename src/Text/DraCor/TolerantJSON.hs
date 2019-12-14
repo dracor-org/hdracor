@@ -40,6 +40,24 @@ parseSource invalid =
 instance ToJSON Source
 
 
+-- * JSON for 'Node'
+
+instance ToJSON Node
+
+instance FromJSON Node where
+  parseJSON = parseNode
+
+parseNode :: Value -> Parser Node
+parseNode (Object o) = Node
+  <$> o .: "id"
+  <*> o .:? "weightedDegree"
+  <*> o .:? "degree"
+  <*> o .:? "closeness"
+  <*> o .:? "eigenvector"
+  -- workaroud issue # of dracor-api
+  <*> tolerateStringNum double o "betweenness" "betweenness"
+
+
 -- * JSON for 'Metrics'
 
 instance FromJSON Metrics where
@@ -49,7 +67,8 @@ parseMetrics :: Value -> Parser Metrics
 parseMetrics (Object s) = Metrics
   <$> s .:? "size"
   -- Workaround for issue #85 of dracor-api:
-  <*> (fmap Just $ s .:? "averageClustering" .!= 0.0)
+  -- <*> (fmap Just $ s .:? "averageClustering" .!= 0.0)
+  <*> tolerateStringNum double s "averageClustering" "averageClustering"
   <*> s .:? "numOfPersonGroups"
   <*> s .:? "density"
   <*> s .:? "averagePathLength"

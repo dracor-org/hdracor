@@ -20,6 +20,11 @@ import Text.DraCor.Utils
 $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Source)
 
 
+-- * JSON for 'Node'
+
+$(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 4} ''Node)
+
+
 -- -- * JSON for 'Play'
 
 -- $(ATH.deriveJSON ATH.defaultOptions{ATH.fieldLabelModifier = modifyField 3} ''Play)
