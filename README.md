@@ -57,7 +57,7 @@ and will succeed parsing despite issues #83-89 of
 one--which is still under construction--is intolerant an can be used
 for application testing.
 
-Caveat: The to sets live in the modules `Text.DraCor.TolerantJSON` and
+Caveat: The two sets live in the modules `Text.DraCor.TolerantJSON` and
 `Text.DraCor.IntolerantJSON` respectively and are *orphan
 instances*. So, don't try to import both of them!
 
