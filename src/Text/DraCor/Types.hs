@@ -8,8 +8,6 @@ import GHC.Generics
 
 -- * Records for storing json data from the DraCor API
 
-
-
 type URL = Text
 
 type Year = Int
@@ -122,6 +120,49 @@ data Metrics = Metrics
   } deriving (Show, Eq, Generic)
 
 
+-- * Text, spoken aloud and mute
+
+-- | Wrappers for the types of text in a play. The wrappers are
+-- realized by type constructors.
+data TextState
+  = Aloud Text                -- ^ text spoken by some character
+  | Stage Text                -- ^ stage direction
+  | Speaker Text              -- ^ speaker name
+  | Mute Text                 -- ^ other mute text, i.e. text not spoken aloud
+  deriving (Show, Eq)
+
+-- | Unpack the 'Text' from a stateful 'TextState' text.
+getTextStateText :: TextState -> Text
+getTextStateText (Mute txt) = txt
+getTextStateText (Aloud txt) = txt
+getTextStateText (Stage txt) = txt
+getTextStateText (Speaker txt) = txt
+
+-- | A predicate that is 'True', if the 'TextState' of given text is
+-- 'Speaker'. Useful for filtering.
+isSpeaker :: TextState -> Bool
+isSpeaker (Speaker _) = True
+isSpeaker _ = False
+
+-- | A predicate that is 'True', if the 'TextState' of given text is
+-- 'Speach' of 'Stage'.
+isSpeachOrStage :: TextState -> Bool
+isSpeachOrStage (Aloud _) = True
+isSpeachOrStage (Stage _) = True
+isSpeachOrStage _ = False
+
+-- | A speach (turn taking) of a theater play, with a (one or many)
+-- speaker and a list of stateful speach texts.
+data Speach = Speach
+  { speachWho :: [Text]
+  , speachSpeaker :: [Text]
+  , speachSpeach :: [TextState]
+  } deriving (Show, Eq)
+
+-- * Play
+
+-- | A record of a play with 'Metadata', 'Metrics', and lists of
+-- 'Scene', 'CastItem'.
 data Play = Play
   { -- meta data
     plyMetadata :: Metadata
@@ -133,6 +174,7 @@ data Play = Play
   , plyCast :: [CastItem]
   } deriving (Generic, Show, Eq)
 
+-- * Corpus
 
 data Corpus = Corpus
   { crpsName :: Maybe Text

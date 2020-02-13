@@ -24,6 +24,9 @@ dependencies:
 - aeson
 - text
 - bytestring
+- xeno
+- lens
+- regex-tdfa
 
 library:
   source-dirs: src
@@ -39,3 +42,4 @@ tests:
     dependencies:
     - HTF
     - hdracor
+    - http-conduit

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3320a3c103f7d9e513ef11cd842e9c074511d88da56d97ed2ac290584b3ae189
+-- hash: 1ea67ccdfdac34c604cf30c3e113414b3c044b4f5c26eab539db3c5d0ebe2723
 
 name:           hdracor
 version:        0.1.0.0
@@ -30,6 +30,7 @@ library
       Text.DraCor.API
       Text.DraCor.CommonJSON
       Text.DraCor.IntolerantJSON
+      Text.DraCor.TEI
       Text.DraCor.TolerantJSON
       Text.DraCor.Types
       Text.DraCor.Utils
@@ -41,13 +42,17 @@ library
       aeson
     , base >=4.7 && <5
     , bytestring
+    , lens
+    , regex-tdfa
     , text
+    , xeno
   default-language: Haskell2010
 
 test-suite hdracor-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Test.Text.DraCor.TEI
       Test.Text.DraCor.Tolerant
       Paths_hdracor
   hs-source-dirs:
@@ -59,5 +64,9 @@ test-suite hdracor-test
     , base >=4.7 && <5
     , bytestring
     , hdracor
+    , http-conduit
+    , lens
+    , regex-tdfa
     , text
+    , xeno
   default-language: Haskell2010
