@@ -123,10 +123,10 @@ attrNode (Right s) k v
 closeTag :: Either String SaxState -> B.ByteString -> Either String SaxState
 closeTag (Left err) _ = Left err
 closeTag (Right s) tag
-  | tag /= head (_tagStack s)
-  = Left $ "Fatal XML error: unexpected closing tag " -- ++ (show $ B.unpack tag)
   | _tagStack s == []
   = Left "Fatal XML error: closing tag while no open tags left"
+  | tag /= head (_tagStack s)
+  = Left $ "Fatal XML error: unexpected closing tag " -- ++ (show $ B.unpack tag)
   -- closing sp
   | (tag =~ (teiTag s "sp") :: Bool)
   = Right $ s & tagStack %~ tail
