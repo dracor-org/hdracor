@@ -73,10 +73,11 @@ openTag (Right s) tag
   -- a new scene
   | (tag =~ (teiTag s "div") :: Bool)
     && _inBody s
-    -- -- FIXME:
-    -- -- for nested divs, the outer would produce an empty
-    -- -- list. Downside: No scenes without speaches!
-    -- && ((head $ _scenes s) /= [])
+    -- We also check, if the last element in stack of speaches is an
+    -- empty list, because for nested divs--like in plays with acts
+    -- and scenes--the outer would produce an empty list. Downside: No
+    -- scenes without speaches!
+    && ((last $ _scenes s) /= [])
   = Right $ s & tagStack %~ (tag:)
     & scenes %~ (++[[]])
   -- opening sp
@@ -129,12 +130,20 @@ closeTag (Right s) tag
   = Left $ "Fatal XML error: unexpected closing tag " -- ++ (show $ B.unpack tag)
   -- closing sp
   | (tag =~ (teiTag s "sp") :: Bool)
+    -- Why do we have to check, that there are data? Without, there
+    -- will be an Speach element in the list from the initial SaxState
+    -- in a play like FalknerPalindrom. But there is no closing xml sp
+    -- element before the first div! FIXME or EXPLAIN
+    && ((_who s /= "")
+        || (_speaker s /= [])
+        || ((filter isSpeachOrStage $ _speach s) /= []))
   = Right $ s & tagStack %~ tail
     & scenes %~ (\xs -> init xs ++ [(last xs) ++ [mkSpeach s]])
     & who .~ ""
     & speaker .~ []
     & speach .~ []
     & inSp .~ False
+    & textState %~ tail
   -- closing stage in sp
   | (tag =~ (teiTag s "stage") :: Bool)
     && (_inSp s)
@@ -145,7 +154,7 @@ closeTag (Right s) tag
     && (_inSp s)
   = Right $ s & tagStack %~ tail
     & textState %~ tail
-  -- closing p in lg
+  -- closing lg in sp
   | (tag =~ (teiTag s "lg") :: Bool)
     && (_inSp s)
   = Right $ s & tagStack %~ tail
@@ -162,7 +171,12 @@ textNode (Right s) str
   | otherwise = Right s
   where
     constructTxt :: SaxState -> (T.Text -> TextState)
-    constructTxt s = head $ _textState s
+    constructTxt s
+      -- FIXME: The first case is never true because of the initial
+      -- sax state. Add tests to assert it. The guard slows things
+      -- down.
+      | (length $ _textState s) == 0 = Mute
+      | otherwise = head $ _textState s
 
 endOpenTag :: Either String SaxState -> B.ByteString -> Either String SaxState
 endOpenTag s _ = s
@@ -180,31 +194,26 @@ cdata s _ = s
 -- The parser checks for properly nested elements.
 parseTEI :: B.ByteString -> Either String [[Speach]]
 parseTEI =
-  fmap (removeFirstSceneIfEmpty . _scenes) .
+  fmap _scenes .
   joinEithers .
   fold openTag attrNode endOpenTag textNode closeTag cdata initialSaxState
   where
     joinEithers :: Either XenoException (Either String SaxState) -> Either String SaxState
     joinEithers (Left xerr) = Left $ show xerr
     joinEithers (Right result) = result
-    -- The first scene element is empty for plays with a body and all
-    -- sp elements contained in divs in the body, due to the initial
-    -- state. But maybe there are valid TEI instance where this is not
-    -- the case.
-    removeFirstSceneIfEmpty xs
-      | head xs == [] = tail xs
-      | otherwise = xs
+
 
 -- * Playing around
 
 -- | Parse an example play with @stack runghc TEI.hs@
 main :: IO ()
 main = do
-  let gerdracor = "/home/clueck/Projekte/Dramenkorpus/gerdracor/tei/"
+  let gerdracor = "../../../../gerdracor/tei/"
       exampleDir = "../../../test/examples/"
       suff = "alberti-im-suff.xml"
+      palindrom = "FalknerPalindrom.TEI-P5.xml"
       goetz = "goethe-goetz-von-berlichingen-mit-der-eisernen-hand.xml"
-  xml <- B.readFile $ gerdracor ++ goetz
+  xml <- B.readFile $ exampleDir ++ palindrom
   let result = parseTEI xml
   case result of
     Left err -> do
@@ -212,6 +221,7 @@ main = do
     Right s -> do
       -- print s
       -- mapM_ (print . (map speachWho)) s
+      -- print $ show $ s !! 5 --- $ map (map speachSpeaker) s
       print $ length $ s
       print $ map length s
       print $ foldl (+) 0 $ map length s

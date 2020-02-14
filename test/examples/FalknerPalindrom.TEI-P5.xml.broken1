@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+	<title>Otto und seine Freunde machen ein Palindrom</title>
+	<author>Brigitta Falkner</author>
+      </titleStmt>
+      <editionStmt>
+	<edition>Arbeitsversion für den Kurs 33439</edition>
+	<respStmt>
+	  <resp>In TEI kodiert von</resp>
+	  <name>Christian Lück</name>
+	</respStmt>
+      </editionStmt>
+      <publicationStmt>
+	<publisher>FernUniversität in Hagen</publisher>
+	<pubPlace>Hagen</pubPlace>
+	<date>2019</date>
+      </publicationStmt>
+      <sourceDesc>
+	<biblStruct>
+	  <monogr>
+	    <author>Brigitta Falkner</author>
+	    <title>FABULA RASA oder die methodische Schraube</title>
+	    <imprint>
+	      <pubPlace>Klagenfurt und Wien</pubPlace>
+	      <publisher>Ritter</publisher>
+	      <date>2001</date>
+	    </imprint>
+	  </monogr>
+	  <citedRange unit="page">114</citedRange>
+	</biblStruct>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <head>Otto und seine Freunde machen ein Palindrom</header>
+      <div>
+	<sp>
+	  <speaker>ERICH</speaker>
+	  <stage rendition="#i">(im Nebel):</stage>
+	  <p>Otto!</p>
+	</sp>
+      </div>
+    </body>
+  </text>
+</TEI>

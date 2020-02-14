@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TEI-Kodierung von Brigitta Falkners "Otto und seine Freunde
+machen ein Palindrom".
+Der Einschub ist nicht einfach durch ein div-Element darstellbar,
+weil nach einem solchen keine Figurenreden mehr im selben div-Element
+auftreten dürfen. Stattdessen wird ein spGrp-Element verwendet. -->
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+	<title>Otto und seine Freunde machen ein Palindrom</title>
+	<author>Brigitta Falkner</author>
+      </titleStmt>
+      <editionStmt>
+	<edition>Arbeitsversion für den Kurs 33439</edition>
+	<respStmt>
+	  <resp>In TEI kodiert von</resp>
+	  <name>Christian Lück</name>
+	</respStmt>
+      </editionStmt>
+      <publicationStmt>
+	<publisher>FernUniversität in Hagen</publisher>
+	<pubPlace>Hagen</pubPlace>
+	<date>2019</date>
+      </publicationStmt>
+      <sourceDesc>
+	<biblStruct>
+	  <monogr>
+	    <author>Brigitta Falkner</author>
+	    <title>FABULA RASA oder die methodische Schraube</title>
+	    <imprint>
+	      <pubPlace>Klagenfurt und Wien</pubPlace>
+	      <publisher>Ritter</publisher>
+	      <date>2001</date>
+	    </imprint>
+	  </monogr>
+	  <citedRange unit="page">114</citedRange>
+	</biblStruct>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <head>Otto und seine Freunde machen ein Palindrom</head>
+      <div>
+	<sp>
+	  <speaker>OTTO:</speaker>
+	  <p rendition="#i">Ein Neger mit Forelle...</p>
+	</sp>
+	<sp>
+	  <speaker>ERICH</speaker>
+	  <stage rendition="#i">(im Nebel):</stage>
+	  <p>Otto!</p>
+	</sp>
+	<sp>
+	  <speaker>NEGER</speaker>
+	  <stage rendition="#i">(schizoid):</stage>
+	  <p>??!!</p>
+	</sp>
+	<sp>
+	  <speaker>ARMIN</speaker>
+	  <stage rendition="#i">(Akrobat):</stage>
+	  <p rendition="#i">...Seil...</p>
+	</sp>
+	<sp>
+	  <speaker>OTTO:</speaker>
+	  <p rendition="#i">...mit Gazette zagt im ...</p>
+	</sp>
+	<sp>
+	  <speaker>ICH:</speaker>
+	  <p rendition="#i">...im Busch nie.</p>
+	</sp>
+	<sp>
+	  <speaker>MICHI:</speaker>
+	  <p rendition="#i">Mit Gazelle!</p>
+	</sp>
+	<sp>
+	  <speaker>HANNA</speaker>
+	  <stage rendition="#i">(helle):</stage>
+	  <p rendition="#i">Zagt im Regen nie!</p>
+	</sp>
+	<sp>
+	  <speaker>OTTO:</speaker>
+	  <p rendition="#i">Nebel.</p>
+	</sp>
+	<sp>
+	  <speaker>MICHI:</speaker>
+	  <p><hi rendition="#i">Ein Neger mit Gazelle</hi>...makellos!</p>
+	</sp>
+	<sp>
+	  <speaker>SANDRA:</speaker>
+	  <p>Wie? <hi rendition="#i">Neger??</hi></p>
+	</sp>
+	<sp>
+	  <speaker>ICH</speaker>
+	  <stage rendition="#i">(im Schlaf):</stage>
+	  <p rendition="#i">...mit Gazette zagt im...</p>
+	</sp>
+	<sp>
+	  <speaker>OTTO</speaker>
+	  <stage rendition="#i">(Regen niederfiel):</stage>
+	  <p>Ei?</p>
+	</sp>
+	<sp>
+	  <speaker>FRED:</speaker>
+	  <p rendition="#i">Ein Neger...</p>
+	</sp>
+	<sp>
+	  <speaker>NEGER:</speaker>
+	  <p><hi rendition="#1">Chinese!</hi> Nicht –</p>
+	</sp>
+	<sp>
+	  <speaker>HANS</speaker>
+	  <stage rendition="#i">(naht):</stage>
+	  <p>Chinesen</p>
+	</sp>
+	<sp>
+	  <speaker>ICH:</speaker>
+	  <p>Regen?</p>
+	  <stage rendition="#i">(Regen niederfiel)</stage>
+	  <p>Ei!</p>
+	</sp>
+	<sp>
+	  <speaker>FRED:</speaker>
+	  <p>Ein Neger...</p>
+	</sp>
+	<sp>
+	  <speaker>OTTO:</speaker>
+	  <p>... <hi rendition="#i">mit Gazette zagt im</hi> ... falsch!</p>
+	</sp>
+	<sp>
+	  <speaker>MICHI:</speaker>
+	  <p>...<hi rendition="#i">Regen</hi>...ei!</p>
+	  <stage rendition="#i">(ward nass)</stage>
+	  <p>Olle Kamelle! ...<hi rendition="#i">zagt im<lb/> Regen nie!</hi></p>
+	</sp>
+	<sp>
+	  <speaker>ICH:</speaker>
+	  <p rendition="#i">Im Leben</p>
+	</sp>
+	<sp>
+	  <speaker>OTTO:</speaker>
+	  <p rendition="#i">Ein Neger mit Gazelle...</p>
+	</sp>
+	<sp>
+	  <speaker rendition="#i">HANNA</speaker>
+	  <stage rendition="#i">(helle):</stage>
+	  <p rendition="#i">...zagt im ...</p>
+	</sp>
+	<sp>
+	  <speaker>ICH:</speaker>
+	  <p rendition="#i">...im...</p>
+	</sp>
+	<spGrp xml:id="einschub">
+	  <head rendition="#i #c">(Einschub)</head>
+	  <sp>
+	    <speaker>MICHI</speaker>
+	    <stage rendition="#i">(mit Gazette):</stage>
+	    <p rendition="#i">...zagt im...</p>
+	  </sp>
+	  <sp>
+	    <speaker>OTTO:</speaker>
+	    <stage rendition="#i">(liest ab):</stage>
+	    <p rendition="#i">Orkan? Im...</p>
+	  </sp>
+	  <sp>
+	    <speaker>RADIO</speaker>
+	    <stage rendition="#i">(zisch):</stage>
+	    <p>...Regen...</p>
+	  </sp>
+	</spGrp>
+	<sp>
+	  <speaker>OTTO:</speaker>
+	  <p rendition="#i">...Leben...</p>
+	</sp>
+	<sp>
+	  <speaker>MICHI</speaker>
+	  <stage rendition="#i">(reeller):</stage>
+	  <p><hi rendition="#i">...oft! Im Regen nie,</hi> Otto!</p>
+	</sp>
+      </div>
+    </body>
+  </text>
+</TEI>
